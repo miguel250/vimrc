@@ -1,3 +1,0 @@
-[submodule "bundle/vim-vinegar"]
-	path = bundle/vim-vinegar
-	url = git://github.com/tpope/vim-vinegar.git
