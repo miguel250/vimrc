@@ -8,8 +8,9 @@ Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/mileszs/ack.vim'
 call plug#end()
 
 if !isdirectory($VIMHOME.'/plugged/')
@@ -20,6 +21,11 @@ endif
 if stridx(&rtp,  g:plugs['deoplete.nvim'].dir) >= 1
     call deoplete#enable()
 endif
+
+if executable('ag')
+  let g:ackprg = '--nogroup --nocolor'
+endif
+
 "
 " Settings
 " Use :option to see all available options
@@ -48,8 +54,8 @@ set splitright                  " Split vertical windows right to the current wi
 set splitbelow                  " Split horizontal windows below to the current 
 let g:netrw_liststyle=3         " netrw tree view
 
-set tabstop=4                   " Number of spaces to convert a tab
-set shiftwidth=4                " Number of spaces to use for auto indenting
+set tabstop=2                   " Number of spaces to convert a tab
+set shiftwidth=2                " Number of spaces to use for auto indenting
 set expandtab                   " Convert tabs into spaces
 
 set smarttab                    " Insert tabs on the start of a line according to shiftwidth 
