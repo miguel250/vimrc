@@ -1,18 +1,7 @@
 " VIM directory
 let $VIMHOME = fnamemodify(resolve(expand('<sfile>:p')), ':h') 
 
-" Load plugins
-call plug#begin($VIMHOME.'/plugged/')
-Plug 'https://github.com/tpope/vim-vinegar'
-Plug 'https://github.com/ervandew/supertab'
-Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
-Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
-Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'https://github.com/junegunn/fzf.vim'
-Plug 'https://github.com/Yggdroot/indentLine'
-Plug 'https://github.com/mileszs/ack.vim'
-call plug#end()
+:source $VIMHOME/plugins.vim
 
 if !isdirectory($VIMHOME.'/plugged/')
     :source $VIMHOME/snapshot.vim
