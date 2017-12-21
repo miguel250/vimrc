@@ -10,6 +10,7 @@ Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/Yggdroot/indentLine'
 Plug 'https://github.com/mileszs/ack.vim'
 call plug#end()
 
