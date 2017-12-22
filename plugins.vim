@@ -14,3 +14,8 @@ Plug 'https://github.com/ap/vim-buftabline'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
 Plug 'https://github.com/tpope/vim-vinegar'
 call plug#end()
+
+if !isdirectory($VIMHOME.'/plugged/')
+    :source $VIMHOME/snapshot.vim
+    :source $MYVIMRC
+endif
