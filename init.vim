@@ -78,6 +78,12 @@ imap <Right> <NOP>
 let mapleader = ","
 let g:mapleader = ","
 
+" ========= vim-better-whitespace ==================
+
+" auto strip whitespace except for file with extention blacklisted
+let blacklist = ['markdown', 'md']
+autocmd BufWritePre * StripWhitespace
+
 map <leader>ss :setlocal spell!<cr> " Toggle spelling check
 
 " trim all whitespaces away
