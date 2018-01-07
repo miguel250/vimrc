@@ -13,6 +13,7 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
 Plug 'https://github.com/ap/vim-buftabline'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
+Plug 'https://github.com/racer-rust/vim-racer'
 Plug 'https://github.com/tpope/vim-vinegar'
 call plug#end()
 
@@ -20,3 +21,5 @@ if !isdirectory($VIMHOME.'/plugged/')
     :source $VIMHOME/snapshot.vim
     :source $MYVIMRC
 endif
+
+let g:racer_experimental_completer = 1
