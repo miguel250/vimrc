@@ -23,3 +23,4 @@ if !isdirectory($VIMHOME.'/plugged/')
 endif
 
 let g:racer_experimental_completer = 1
+highlight BufTabLineFill ctermbg=black
