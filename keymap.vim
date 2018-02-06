@@ -31,3 +31,13 @@ map <leader>ss :setlocal spell!<cr> " Toggle spelling check
 
 " trim all whitespaces away
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" Better split switching
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Buffer prev/next
+nnoremap <C-x> :bnext<CR>
+nnoremap <C-z> :bprev<CR>
