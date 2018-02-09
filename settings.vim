@@ -44,3 +44,6 @@ set showmatch                   " When a bracket is inserted, briefly jump to th
 set wrap
 set textwidth=79
 set formatoptions=qrn1
+
+" copy to system clickboard
+set clipboard=unnamedplus
