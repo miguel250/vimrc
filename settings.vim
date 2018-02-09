@@ -26,7 +26,9 @@ set lazyredraw                  " Don't redraw while executing macros (good perf
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current
 let g:netrw_liststyle=3         " netrw tree view
-
+let g:netrw_browse_split = 2
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
 
 set expandtab                   " Convert tabs into spaces
 set tabstop=2                   " Number of spaces to convert a tab

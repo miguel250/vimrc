@@ -41,3 +41,6 @@ map <C-l> <C-W>l
 " Buffer prev/next
 nnoremap <C-x> :bnext<CR>
 nnoremap <C-z> :bprev<CR>
+
+" Vinege
+map - :Vexplore<CR>
