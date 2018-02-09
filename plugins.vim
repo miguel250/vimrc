@@ -15,6 +15,7 @@ Plug 'https://github.com/ap/vim-buftabline'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
 Plug 'https://github.com/racer-rust/vim-racer'
 Plug 'https://github.com/tpope/vim-vinegar'
+Plug 'https://github.com/ayu-theme/ayu-vim'
 call plug#end()
 
 if !isdirectory($VIMHOME.'/plugged/')
@@ -22,5 +23,13 @@ if !isdirectory($VIMHOME.'/plugged/')
     :source $MYVIMRC
 endif
 
+"" Rust
 let g:racer_experimental_completer = 1
+
+"" ayu
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
+
+"" Buftabline
 highlight BufTabLineFill ctermbg=black
