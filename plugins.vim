@@ -15,7 +15,7 @@ Plug 'https://github.com/ap/vim-buftabline'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
 Plug 'https://github.com/racer-rust/vim-racer'
 Plug 'https://github.com/tpope/vim-vinegar'
-Plug 'https://github.com/ayu-theme/ayu-vim'
+Plug 'https://github.com/morhetz/gruvbox'
 call plug#end()
 
 if !isdirectory($VIMHOME.'/plugged/')
@@ -28,8 +28,8 @@ let g:racer_experimental_completer = 1
 
 "" ayu
 set termguicolors     " enable true colors support
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+set background=dark   " setting dark mode
+colorscheme gruvbox
 
 "" Buftabline
 highlight BufTabLineFill ctermbg=black
