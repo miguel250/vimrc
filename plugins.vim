@@ -26,10 +26,23 @@ endif
 "" Rust
 let g:racer_experimental_completer = 1
 
-"" ayu
+"" Gruvbox
 set termguicolors     " enable true colors support
 set background=dark   " setting dark mode
 colorscheme gruvbox
 
 "" Buftabline
 highlight BufTabLineFill ctermbg=black
+
+"" Airline
+let g:airline_theme='gruvbox'
+
+"" Enable deoplete
+if stridx(&rtp,  g:plugs['deoplete.nvim'].dir) >= 1
+    call deoplete#enable()
+endif
+
+"" ack.vim configuration
+if executable('ag')
+  let g:ackprg = '--nogroup --nocolor'
+endif
