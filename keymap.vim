@@ -44,3 +44,6 @@ nnoremap <C-z> :bprev<CR>
 
 " Vinege
 map - :Vexplore<CR>
+
+" Yank to system clipboad
+vnoremap <silent> y y:call system('yank > /dev/tty', @0)<Return>
