@@ -4,4 +4,9 @@
 
 " spell check for git commits
 autocmd FileType gitcommit setlocal spell
-autocmd FileType netrw set nolist
+
+" fix issue with vinegar and not being able to close netrw
+autocmd FileType netrw setl bufhidden=wipe
+
+" close netrw buffer
+autocmd FileType netrw nmap <silent> <buffer> - :bd<cr>
