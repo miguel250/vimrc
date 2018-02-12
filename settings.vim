@@ -21,10 +21,11 @@ set noerrorbells                " No beeps
 set number                      " Show line numbers
 set ignorecase                  " Case insensitive search
 set smartcase                   " Don't ignore case if pattern starts with upper case
-
+set confirm                     " Confirm while closing file
 set lazyredraw                  " Don't redraw while executing macros (good performance config)
 set splitright                  " Split vertical windows right to the current windows
 set splitbelow                  " Split horizontal windows below to the current
+
 let g:netrw_liststyle=3         " netrw tree view
 let g:netrw_browse_split = 2
 let g:netrw_altv = 1
@@ -47,3 +48,6 @@ set formatoptions=qrn1
 
 " copy to system clickboard
 set clipboard=unnamedplus
+
+" Highlight column
+set colorcolumn=80
