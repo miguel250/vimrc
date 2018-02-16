@@ -9,4 +9,7 @@ autocmd FileType gitcommit setlocal spell
 autocmd FileType netrw setl bufhidden=wipe
 
 " close netrw buffer
-autocmd FileType netrw nmap <silent> <buffer> - :bd<cr>
+autocmd FileType netrw nmap <silent> <buffer> - :call  ToggleVExplorer() <cr>
+
+" close fzf if open
+autocmd FileType fzf tnoremap <C-a> <Esc>
