@@ -16,6 +16,7 @@ set nowritebackup               " Don't create backup file while editing file
 set encoding=utf-8              " Set default encoding
 set laststatus=2                " Always show status bar
 set hidden                      " Keep change buffer without writing them to disk
+set autochdir                   " change to current buffer directory
 set ruler                       " Show the cursor position all the time
 set noerrorbells                " No beeps
 set number                      " Show line numbers
