@@ -20,6 +20,7 @@ Plug 'https://github.com/ap/vim-buftabline'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
 Plug 'https://github.com/zchee/deoplete-go', {'for': 'go', 'do': 'make'}
 Plug 'https://github.com/tpope/vim-vinegar'
+Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/morhetz/gruvbox'
 call plug#end()
 
@@ -35,6 +36,7 @@ if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
   :source $VIMHOME/snapshot.vim
   :source $MYVIMRC
 endif
+
 
 "" Rust
 let g:racer_experimental_completer = 1
@@ -52,7 +54,7 @@ let g:airline_theme='gruvbox'
 
 "" Enable deoplete
 if stridx(&rtp,  g:plugs['deoplete.nvim'].dir) >= 1
-    call deoplete#enable()
+  let g:deoplete#enable_at_startup = 1
 endif
 
 "" ack.vim configuration
@@ -68,3 +70,6 @@ let g:fzf_action = {
   \ 'enter': 'vsplit'
   \ }
 
+" deoplete-go settings
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
