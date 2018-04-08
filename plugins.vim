@@ -22,6 +22,7 @@ Plug 'https://github.com/zchee/deoplete-go', {'for': 'go', 'do': 'make'}
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/elzr/vim-json', {'for' : 'json'}
 call plug#end()
 
 if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
@@ -73,3 +74,6 @@ let g:fzf_action = {
 " deoplete-go settings
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
+" vim-go
+let g:vim_json_syntax_conceal = 0
