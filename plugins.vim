@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 7
+let $plugin_revision = 8
 
 " Load plugins
 call plug#begin($VIMHOME.'/plugged/')
@@ -12,7 +12,7 @@ Plug 'https://github.com/Yggdroot/indentLine'
 Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
 Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rst'}
-Plug 'https://github.com/racer-rust/vim-racer', {'for': 'rst', 'do': 'cargo install --bin racer racer \| true'}
+Plug 'https://github.com/racer-rust/vim-racer', {'for': 'rst', 'do': 'cargo install --force --bin racer racer \| true'}
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
