@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 6
+let $plugin_revision = 7
 
 " Load plugins
 call plug#begin($VIMHOME.'/plugged/')
@@ -17,7 +17,7 @@ Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
 Plug 'https://github.com/ap/vim-buftabline'
-Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoInstallBinaries'}
+Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries'}
 Plug 'https://github.com/zchee/deoplete-go', {'for': 'go', 'do': 'make'}
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tpope/vim-commentary'
