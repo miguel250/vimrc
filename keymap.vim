@@ -46,7 +46,7 @@ nnoremap <C-z> :bprev<CR>
 map <silent> - :call ToggleVExplorer()<CR>
 
 " Yank to system clipboad
-vnoremap <silent> y y:call system('yank > /dev/tty', @0)<Return>
+vnoremap <silent> y y:call system('yank', @0)<Return>
 
 " fzf
 nnoremap <silent> <C-a> :FZF<CR>
