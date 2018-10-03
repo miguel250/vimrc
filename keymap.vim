@@ -50,3 +50,15 @@ vnoremap <silent> y y:call system('yank', @0)<Return>
 
 " fzf
 nnoremap <silent> <C-a> :FZF<CR>
+imap <C-a> <esc>:<C-u> :FZF<cr>
+
+" search
+nmap <C-p> :History<cr>
+imap <C-p> <esc>:<C-u>History<cr>
+
+" reload vim configuration
+nnoremap <silent> <F1> :source $MYVIMRC<CR>
+
+" vim-go
+nmap <C-g> :GoDecls<cr>
+imap <C-g> <esc>:<C-u>GoDecls<cr>
