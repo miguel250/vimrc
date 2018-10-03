@@ -52,3 +52,7 @@ set clipboard=unnamedplus
 
 " Highlight column
 set colorcolumn=80
+
+" persistent undo
+set undofile
+set undodir=~/.cache/vim
