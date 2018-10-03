@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 8
+let $plugin_revision = 9
 
 " Load plugins
 call plug#begin($VIMHOME.'/plugged/')
