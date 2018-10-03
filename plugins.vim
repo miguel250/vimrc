@@ -63,8 +63,6 @@ if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
-"" vim-go
-let g:go_fmt_command = "goimports"
 
 "" fzf
 let g:fzf_layout = { 'down': '~20%' }
@@ -74,8 +72,26 @@ let g:fzf_action = {
   \ }
 
 " deoplete-go settings
+let g:deoplete#sources#go#builtin_objects = 1
 let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " vim-go
+let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
+let g:go_info_mode = "gocode"
+let g:go_def_mode = "guru"
+let g:go_metalinter_autosave_enabled = ['vet', 'golint']
+let g:go_metalinter_enabled = ['vet', 'golint']
+
+let g:go_test_show_name = 1
+let g:go_def_reuse_buffer = 1
+let g:go_auto_type_info = 1
+let g:go_echo_command_info = 1
+let g:go_autodetect_gopath = 1
+let g:go_highlight_operators = 1
+let g:go_gocode_propose_source = 1
+
+
+" vim json
 let g:vim_json_syntax_conceal = 0
