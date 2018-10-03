@@ -59,16 +59,18 @@ if stridx(&rtp,  g:plugs['deoplete.nvim'].dir) >= 1
 endif
 
 "" ack.vim configuration
-if executable('ag')
-  let g:ackprg = '--nogroup --nocolor'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
 endif
 
 "" vim-go
 let g:go_fmt_command = "goimports"
 
 "" fzf
+let g:fzf_layout = { 'down': '~20%' }
+
 let g:fzf_action = {
-  \ 'enter': 'vsplit'
+  \ 'enter': 'GotoOrOpen vsplit'
   \ }
 
 " deoplete-go settings

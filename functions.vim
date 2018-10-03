@@ -22,3 +22,19 @@ function! ToggleVExplorer()
       let t:expl_buf_num = bufnr("%")
   endif
 endfunction
+
+" fzf
+" Jump to file if file is already opened
+function! s:GotoOrOpen(command, ...)
+  for file in a:000
+    let a:bufnr = win_findbuf(bufnr(file))
+    if len(a:bufnr) == 0
+      exec a:command . ' ' . file
+    else
+      call win_gotoid(a:bufnr[0])
+    endif
+  endfor
+endfunction
+
+command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
+
