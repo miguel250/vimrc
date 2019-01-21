@@ -39,6 +39,9 @@ if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
 endif
 
 
+"" indentLine
+let g:indentLine_enabled = 1
+
 "" Rust
 let g:racer_experimental_completer = 1
 
