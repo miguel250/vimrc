@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 9
+let $plugin_revision = 10
 
 " Load plugins
 call plug#begin($VIMHOME.'/plugged/')
@@ -94,6 +94,7 @@ let g:go_echo_command_info = 1
 let g:go_autodetect_gopath = 1
 let g:go_highlight_operators = 1
 let g:go_gocode_propose_source = 1
+let g:go_highlight_function_parameters = 1
 
 
 " vim json
