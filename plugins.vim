@@ -2,6 +2,9 @@
 " the plugged folder and redownload all plugs.
 let $plugin_revision = 10
 
+" make sure nodejs modules are available for language client
+let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
+
 " Load plugins
 call plug#begin($VIMHOME.'/plugged/')
 Plug 'https://github.com/mileszs/ack.vim'
@@ -18,11 +21,17 @@ Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
 Plug 'https://github.com/ap/vim-buftabline'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries'}
-Plug 'https://github.com/zchee/deoplete-go', {'for': 'go', 'do': 'make'}
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/elzr/vim-json', {'for' : 'json'}
+Plug 'https://github.com/HerringtonDarkholme/yats.vim'
+Plug 'https://github.com/Shougo/neosnippet.vim'
+Plug 'https://github.com/Shougo/neosnippet-snippets'
+Plug 'https://github.com/autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 call plug#end()
 
 if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
@@ -37,7 +46,6 @@ if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
   :source $VIMHOME/snapshot.vim
   :source $MYVIMRC
 endif
-
 
 "" indentLine
 let g:indentLine_enabled = 1
@@ -99,3 +107,13 @@ let g:go_highlight_function_parameters = 1
 
 " vim json
 let g:vim_json_syntax_conceal = 0
+let g:neosnippet#enable_complete_done = 1
+
+"LanguageClient-neovim
+let g:LanguageClient_hasSnippetSupport = 1
+let g:LanguageClient_serverCommands = {
+  \ 'go': ['bingo'],
+  \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
+  \ 'typescript': ['typescript-language-server', '--stdio'],
+  \ 'javascript': ['typescript-language-server', '--stdio'],
+  \}

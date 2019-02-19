@@ -1,4 +1,10 @@
 "
+" This comes first, because we have mappings that depend on leader
+" With a map leader it's possible to do extra key combinations
+" i.e: <leader>w saves the current file
+let mapleader = ","
+let g:mapleader = ","
+
 " Keys mapping for Insert mode
 " Use :help index to see all keymaps
 "
@@ -14,12 +20,6 @@ imap <Up>    <NOP>
 imap <Down>  <NOP>
 imap <Left>  <NOP>
 imap <Right> <NOP>
-
-" This comes first, because we have mappings that depend on leader
-" With a map leader it's possible to do extra key combinations
-" i.e: <leader>w saves the current file
-let mapleader = ","
-let g:mapleader = ","
 
 " ========= vim-better-whitespace ==================
 
