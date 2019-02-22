@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROJECT_ROOT="$SCRIPTS_DIR/../"
+
+declare -a binaries=("go" "yarn" "pip3" "pip2")
+
+
+for binary in "${binaries[@]}"
+do
+  if [ -z $(which $binary) ]
+  then
+    echo "${binary} needs to be installed"
+    exit 1
+  fi
+done
+
+
+
+cd $PROJECT_ROOT
+
+go install github.com/saibing/bingo
+yarn install
+pip3 install --user --upgrade -r requirements.txt
+pip2 install --user --upgrade -r requirements.txt
