@@ -14,6 +14,5 @@ autocmd FileType netrw nmap <silent> <buffer> - :call  ToggleVExplorer() <cr>
 " close fzf if open
 autocmd FileType fzf tnoremap <C-a> <Esc>
 
-" vim-go
-autocmd FileType go nmap <silent> <Leader>v <Plug>(go-def-vertical)
-autocmd FileType go nmap <silent> <Leader>d <Plug>(go-doc-vertical)
+" Language Client
+autocmd FileType * call LC_maps()
