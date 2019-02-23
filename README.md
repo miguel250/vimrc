@@ -1,4 +1,4 @@
-#VIMRC
+# VIMRC
 neovim configuration
 
 ### Dependencies

@@ -5,7 +5,6 @@ PROJECT_ROOT="$SCRIPTS_DIR/../"
 
 declare -a binaries=("go" "yarn" "pip3" "pip2")
 
-
 for binary in "${binaries[@]}"
 do
   if [ -z $(which $binary) ]
@@ -14,8 +13,6 @@ do
     exit 1
   fi
 done
-
-
 
 cd $PROJECT_ROOT
 
