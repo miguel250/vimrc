@@ -43,7 +43,7 @@ endif
 if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
   :call system('echo "installing plugins"')
   :call system('touch ' . $VIMHOME.'/plugged/'.$plugin_revision.'.txt')
-  :source $VIMHOME/snapshot.vim
+  :source $VIMHOME/src/snapshot.vim
   :source $MYVIMRC
 endif
 
