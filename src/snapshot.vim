@@ -3,7 +3,7 @@
 " :source this file in vim to restore the snapshot
 " or execute: vim -S snapshot.vim
 
-silent! let g:plugs['LanguageClient-neovim'].commit = 'ab1644f'
+silent! let g:plugs['LanguageClient-neovim'].commit = 'c33c45d'
 silent! let g:plugs['ack.vim'].commit = '36e40f9'
 silent! let g:plugs['deoplete.nvim'].commit = 'a588aee'
 silent! let g:plugs['fzf'].commit = '315e568'

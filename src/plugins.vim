@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 11
+let $plugin_revision = 12
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -111,9 +111,10 @@ let g:neosnippet#enable_complete_done = 1
 
 "LanguageClient-neovim
 let g:LanguageClient_hasSnippetSupport = 1
+let g:LanguageClient_echoProjectRoot = 0
 let g:LanguageClient_serverCommands = {
   \ 'go': ['bingo'],
-  \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
-  \ 'typescript': ['typescript-language-server', '--stdio'],
+  \ 'typescript.tsx': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
+  \ 'typescript': ['typescript-language-server', '--tsserver-log-file=/tmp/test.log', '--tsserver-log-verbosity=verbose', '--stdio'],
   \ 'javascript': ['typescript-language-server', '--stdio'],
   \}
