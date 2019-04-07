@@ -7,3 +7,6 @@ let $VIMHOME = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 :source $VIMHOME/src/keymap.vim
 :source $VIMHOME/src/files.vim
 
+if filereadable($VIMHOME.'/local.vim')
+  :source $VIMHOME/local.vim
+endif
