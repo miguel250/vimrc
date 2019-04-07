@@ -39,11 +39,17 @@ endfunction
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
 function! LC_maps()
+  if !exists("g:vimrc_lang_auto_format")
+    let g:vimrc_lang_auto_format = 1
+  endif
   if has_key(g:LanguageClient_serverCommands, &filetype)
     nmap   <silent> <Leader>d :call LanguageClient#textDocument_hover()<cr>
     nmap   <silent> <Leader>v :call LanguageClient#textDocument_definition({'gotoCmd':'vsplit'})<cr>
 
     autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
-    autocmd BufWritePre * :call LanguageClient#textDocument_formatting_sync()
+
+    if g:vimrc_lang_auto_format
+      autocmd BufWritePre * :call LanguageClient#textDocument_formatting_sync()
+    endif
   endif
 endfunction
