@@ -111,7 +111,7 @@ let g:neosnippet#enable_complete_done = 1
 let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_echoProjectRoot = 0
 let g:LanguageClient_serverCommands = {
-  \ 'go': ['bingo'],
+  \ 'go': ['gopls'],
   \ 'typescript.tsx': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
   \ 'typescript': ['typescript-language-server', '--tsserver-log-file=/tmp/test.log', '--tsserver-log-verbosity=verbose', '--stdio'],
   \ 'javascript': ['typescript-language-server', '--stdio'],

@@ -1,9 +1,5 @@
 module github.com/miguel250/vimrc
 
-require (
-	github.com/saibing/bingo v0.0.0-20190327024820-e30f14308111 // indirect
-	github.com/sourcegraph/jsonrpc2 v0.0.0-20190106185902-35a74f039c6a // indirect
-	golang.org/x/crypto v0.0.0-20190325154230-a5d413f7728c // indirect
-	golang.org/x/net v0.0.0-20190327025741-74e053c68e29 // indirect
-	golang.org/x/tools v0.0.0-20190327011446-79af862e6737 // indirect
-)
+go 1.12
+
+require golang.org/x/tools v0.0.0-20190407030857-0fdf0c73855b // indirect
