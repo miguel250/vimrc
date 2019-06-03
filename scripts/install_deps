@@ -16,7 +16,7 @@ done
 
 cd $PROJECT_ROOT
 
-go install github.com/saibing/bingo
+go install golang.org/x/tools/cmd/gopls
 yarn install
 pip3 install --user --upgrade -r requirements.txt
 pip2 install --user --upgrade -r requirements.txt
