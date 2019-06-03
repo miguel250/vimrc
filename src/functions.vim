@@ -53,3 +53,9 @@ function! LC_maps()
     endif
   endif
 endfunction
+
+augroup LanguageClient_config
+    autocmd!
+    autocmd User LanguageClientStarted setlocal signcolumn=yes
+    autocmd User LanguageClientStopped setlocal signcolumn=auto
+augroup END

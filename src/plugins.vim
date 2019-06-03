@@ -110,6 +110,32 @@ let g:neosnippet#enable_complete_done = 1
 "LanguageClient-neovim
 let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_echoProjectRoot = 0
+let g:LanguageClient_diagnosticsDisplay = {
+  \     1: {
+  \         "name": "Error",
+  \         "texthl": "ALEError",
+  \         "signText": "●",
+  \         "signTexthl": "ALEErrorSign",
+  \     },
+  \     2: {
+  \         "name": "Warning",
+  \         "texthl": "ALEWarning",
+  \         "signText": "⚠",
+  \         "signTexthl": "ALEWarningSign",
+  \     },
+  \     3: {
+  \         "name": "Information",
+  \         "texthl": "ALEInfo",
+  \         "signText": "ℹ",
+  \         "signTexthl": "ALEInfoSign",
+  \     },
+  \     4: {
+  \         "name": "Hint",
+  \         "texthl": "ALEInfo",
+  \         "signText": "⨯",
+  \         "signTexthl": "ALEInfoSign",
+  \     },
+  \ }
 let g:LanguageClient_serverCommands = {
   \ 'go': ['gopls'],
   \ 'typescript.tsx': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
