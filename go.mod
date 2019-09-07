@@ -1,5 +1,5 @@
 module github.com/miguel250/vimrc
 
-go 1.12
+go 1.13
 
-require golang.org/x/tools v0.0.0-20190602112858-2de7f9bf822c // indirect
+require golang.org/x/tools/gopls v0.1.3 // indirect
