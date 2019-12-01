@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 16
+let $plugin_revision = 17
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -80,28 +80,23 @@ let g:fzf_action = {
   \ 'enter': 'GotoOrOpen vsplit'
   \ }
 
-" deoplete-go settings
-let g:deoplete#sources#go#builtin_objects = 1
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
 " vim-go
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
-let g:go_list_type = "quickfix"
-let g:go_info_mode = "gocode"
-let g:go_def_mode = "guru"
-let g:go_metalinter_autosave_enabled = ['vet', 'golint']
-let g:go_metalinter_enabled = ['vet', 'golint']
-
+let g:go_code_completion_enabled = 1
 let g:go_test_show_name = 1
 let g:go_def_reuse_buffer = 1
 let g:go_auto_type_info = 1
 let g:go_echo_command_info = 1
-let g:go_autodetect_gopath = 1
 let g:go_highlight_operators = 1
 let g:go_gocode_propose_source = 1
 let g:go_highlight_function_parameters = 1
+let g:go_gocode_unimported_packages = 1
 
+if stridx(&rtp,  g:plugs['deoplete.nvim'].dir) >= 1
+  call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
+endif
 
 " vim json
 let g:vim_json_syntax_conceal = 0
@@ -137,7 +132,6 @@ let g:LanguageClient_diagnosticsDisplay = {
   \     },
   \ }
 let g:LanguageClient_serverCommands = {
-  \ 'go': ['gopls'],
   \ 'typescript.tsx': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
   \ 'typescript': ['typescript-language-server', '--tsserver-log-file=/tmp/test.log', '--tsserver-log-verbosity=verbose', '--stdio'],
   \ 'javascript': ['typescript-language-server', '--stdio'],
