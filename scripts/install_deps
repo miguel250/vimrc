@@ -3,7 +3,7 @@
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_ROOT="$SCRIPTS_DIR/../"
 
-declare -a binaries=("go" "yarn" "pip3" "pip2")
+declare -a binaries=("go" "yarn" "pip3")
 
 for binary in "${binaries[@]}"
 do
@@ -16,7 +16,5 @@ done
 
 cd $PROJECT_ROOT
 
-go install golang.org/x/tools/cmd/gopls
 yarn install
 pip3 install --user --upgrade -r requirements.txt
-pip2 install --user --upgrade -r requirements.txt
