@@ -17,4 +17,7 @@ done
 cd $PROJECT_ROOT
 
 yarn install
-pip3 install --user --upgrade -r requirements.txt
+pip3 install --user virtualenv
+virtualenv env --python=python3.7
+env/bin/pip3 install --upgrade -r requirements.txt
+
