@@ -1,6 +1,6 @@
 pynvim==0.4.0
-python-language-server==0.31.2
-mypy==0.750
+python-language-server==0.31.7
+mypy==0.760
 pylint==2.4.4
 pyls-mypy==0.1.8
 
