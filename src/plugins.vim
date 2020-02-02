@@ -63,9 +63,7 @@ highlight BufTabLineFill ctermbg=black
 let g:airline_theme='gruvbox'
 
 "" Enable deoplete
-if stridx(&rtp,  g:plugs['deoplete.nvim'].dir) >= 1
-  let g:deoplete#enable_at_startup = 1
-endif
+let g:deoplete#enable_at_startup = 1
 
 "" ack.vim configuration
 if executable('rg')
@@ -93,10 +91,7 @@ let g:go_highlight_operators = 1
 let g:go_gocode_propose_source = 1
 let g:go_highlight_function_parameters = 1
 let g:go_gocode_unimported_packages = 1
-
-if stridx(&rtp,  g:plugs['deoplete.nvim'].dir) >= 1
-  call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-endif
+call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " vim json
 let g:vim_json_syntax_conceal = 0
@@ -134,7 +129,8 @@ let g:LanguageClient_diagnosticsDisplay = {
   \ }
 let g:LanguageClient_settingsPath = $VIMHOME.'/settings.json'
 let g:LanguageClient_serverCommands = {
-  \ 'typescript.tsx': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
+  \ 'typescript': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
+  \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
   \ 'javascript': ['typescript-language-server', '--stdio'],
   \ 'python': [$VIMHOME.'/env/bin/pyls'],
   \}
