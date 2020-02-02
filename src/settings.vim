@@ -34,7 +34,7 @@ let g:netrw_winsize = 25
 
 set expandtab                   " Convert tabs into spaces
 set tabstop=2                   " Number of spaces to convert a tab
-set shiftwidth=2                " Number of spaces to use for auto indenting
+set shiftwidth=1                " Number of spaces to use for auto indenting
 set softtabstop=2               " Number of spaces that a <Tab> counts for while performing editing operation
 
 set smarttab                    " Insert tabs on the start of a line according to shiftwidth
