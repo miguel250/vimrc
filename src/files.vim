@@ -21,3 +21,6 @@ autocmd FileType * call LC_maps()
 autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
 autocmd FileType go nmap <Leader>d :GoDeclsDir<cr>
 autocmd FileType go nmap <Leader>t <Plug>(go-test)
+
+" scss-syntax
+au BufRead,BufNewFile *.scss set filetype=scss.css

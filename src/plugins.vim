@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 18
+let $plugin_revision = 19
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -16,6 +16,7 @@ Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
 Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
+Plug 'https://github.com/cakebaker/scss-syntax.vim'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
 Plug 'https://github.com/ap/vim-buftabline'
 Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries'}
@@ -132,5 +133,7 @@ let g:LanguageClient_serverCommands = {
   \ 'typescript': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
   \ 'typescript.tsx': ['typescript-language-server', '--stdio'],
   \ 'javascript': ['typescript-language-server', '--stdio'],
+  \ 'css': ['css-languageserver', '--stdio'],
+  \ 'scss': ['css-languageserver', '--stdio'],
   \ 'python': [$VIMHOME.'/env/bin/pyls'],
   \}
