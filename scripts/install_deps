@@ -16,6 +16,7 @@ done
 
 cd $PROJECT_ROOT
 
+rm -rf env/
 yarn install
 pip3 install --user virtualenv
 virtualenv env --python=python3.7
