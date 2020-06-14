@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 20
+let $plugin_revision = 21
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -31,6 +31,8 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
+Plug 'https://github.com/kamykn/spelunker.vim'
+Plug 'https://github.com/kamykn/popup-menu.nvim'
 call plug#end()
 
 if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')

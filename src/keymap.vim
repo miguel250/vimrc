@@ -27,7 +27,9 @@ imap <Right> <NOP>
 let blacklist = ['markdown', 'md']
 autocmd BufWritePre * StripWhitespace
 
-map <leader>ss :setlocal spell!<cr> " Toggle spelling check
+map <leader>ss <Plug>(spelunker-correct-from-list)
+nmap <leader>sn <Plug>(spelunker-jump-next)
+nmap <leader>sp <Plug>(spelunker-jump-prev)
 
 " trim all whitespaces away
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
