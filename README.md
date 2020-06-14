@@ -7,7 +7,6 @@ neovim configuration
   * pynvim
   * neovim
 * Go
-  * Bingo
 * NodeJS
   * Typescript
   * typescript-language-server
