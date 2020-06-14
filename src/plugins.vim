@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 19
+let $plugin_revision = 20
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'

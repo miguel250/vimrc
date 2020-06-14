@@ -3,7 +3,7 @@ neovim configuration
 
 ### Dependencies
 
-* Python2 & Python3
+* Python3
   * pynvim
   * neovim
 * Go

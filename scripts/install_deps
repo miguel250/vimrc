@@ -3,6 +3,8 @@
 SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_ROOT="$SCRIPTS_DIR/../"
 
+env
+
 declare -a binaries=("go" "yarn" "pip3")
 
 for binary in "${binaries[@]}"
@@ -18,7 +20,6 @@ cd $PROJECT_ROOT
 
 rm -rf env/
 yarn install
-pip3 install --user virtualenv
-virtualenv env --python=python3.7
-env/bin/pip3 install --upgrade -r requirements.txt
-
+pip3 install --upgrade --user virtualenv
+virtualenv env --python=python3
+env/bin/pip3 install --upgrade -r requirements.txt  --no-warn-script-location
