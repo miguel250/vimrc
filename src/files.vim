@@ -2,8 +2,8 @@
 " File Type settings                        "
 " ----------------------------------------- "
 
-" spell check for git commits
-autocmd FileType gitcommit setlocal spell
+" spell check for all files
+autocmd! InsertLeave * call spelunker#words#check_display_area()
 
 " fix issue with vinegar and not being able to close netrw
 autocmd FileType netrw setl bufhidden=wipe
