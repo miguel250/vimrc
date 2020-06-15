@@ -85,16 +85,15 @@ let g:fzf_action = {
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
-let g:go_code_completion_enabled = 1
+let g:go_code_completion_enabled = 0
 let g:go_test_show_name = 1
 let g:go_def_reuse_buffer = 1
 let g:go_auto_type_info = 1
-let g:go_echo_command_info = 1
+let g:go_echo_command_info = 0
 let g:go_highlight_operators = 1
 let g:go_gocode_propose_source = 1
 let g:go_highlight_function_parameters = 1
 let g:go_gocode_unimported_packages = 1
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 
 " vim json
 let g:vim_json_syntax_conceal = 0
@@ -104,6 +103,7 @@ let g:neosnippet#enable_complete_done = 1
 let g:LanguageClient_settingsPath = $VIMHOME.'/settings.json'
 let g:LanguageClient_hasSnippetSupport = 1
 let g:LanguageClient_echoProjectRoot = 0
+let g:LanguageClient_hoverPreview = "always"
 let g:LanguageClient_diagnosticsDisplay = {
   \     1: {
   \         "name": "Error",
@@ -138,4 +138,5 @@ let g:LanguageClient_serverCommands = {
   \ 'css': ['css-languageserver', '--stdio'],
   \ 'scss': ['css-languageserver', '--stdio'],
   \ 'python': [$VIMHOME.'/env/bin/pyls'],
+  \ 'go': ['gopls'],
   \}

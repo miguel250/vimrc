@@ -17,10 +17,5 @@ autocmd FileType fzf tnoremap <C-a> <Esc>
 " Language Client
 autocmd FileType * call LC_maps()
 
-" vim-go
-autocmd FileType go nmap <Leader>v <Plug>(go-def-vertical)
-autocmd FileType go nmap <Leader>d :GoDeclsDir<cr>
-autocmd FileType go nmap <Leader>t <Plug>(go-test)
-
 " scss-syntax
 au BufRead,BufNewFile *.scss set filetype=scss.css

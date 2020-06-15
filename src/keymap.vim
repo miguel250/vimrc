@@ -63,4 +63,5 @@ nnoremap <silent> <F1> :source $MYVIMRC<CR>
 
 " vim-go
 nmap <C-g> :GoDecls<cr>
-imap <C-g> <esc>:<C-u>GoDecls<cr>
+nmap <leader>r :call LanguageClient_textDocument_references()<CR>
+
