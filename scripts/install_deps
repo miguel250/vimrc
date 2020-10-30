@@ -20,6 +20,7 @@ cd $PROJECT_ROOT
 
 rm -rf env/
 yarn install
+go install golang.org/x/tools/gopls
 pip3 install --upgrade --user virtualenv
 virtualenv env --python=python3
 env/bin/pip3 install --upgrade -r requirements.txt  --no-warn-script-location
