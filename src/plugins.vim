@@ -33,7 +33,11 @@ Plug 'https://github.com/autozimu/LanguageClient-neovim', {
     \ }
 Plug 'https://github.com/kamykn/spelunker.vim'
 Plug 'https://github.com/kamykn/popup-menu.nvim'
+if filereadable($VIMHOME.'/local_plugins.vim')
+  :source $VIMHOME/local_plugins.vim
+endif
 call plug#end()
+
 
 if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
   for f in split(globpath($VIMHOME.'/plugged', '*.txt'), '\n')

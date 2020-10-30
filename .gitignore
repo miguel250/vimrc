@@ -2,4 +2,5 @@ plugged/
 .netrwhist
 node_modules/
 local.vim
+local_plugins.vim
 env/
