@@ -39,9 +39,10 @@ endfunction
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
 function! LC_maps()
-  if !exists("g:vimrc_lang_auto_format")
+  if !exists("g:vimrc_lang_auto_format") &&  &filetype !=# 'go'
     let g:vimrc_lang_auto_format = 1
   endif
+
   if has_key(g:LanguageClient_serverCommands, &filetype)
     nmap   <silent> <Leader>d :call LanguageClient#textDocument_hover()<cr>
     nmap   <silent> <Leader>v :call LanguageClient#textDocument_definition({'gotoCmd':'vsplit'})<cr>
