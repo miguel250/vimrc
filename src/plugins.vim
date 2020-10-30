@@ -70,6 +70,7 @@ let g:airline_theme='gruvbox'
 
 "" Enable deoplete
 let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 
 "" ack.vim configuration
 if executable('rg')
