@@ -65,3 +65,6 @@ nnoremap <silent> <F1> :source $MYVIMRC<CR>
 nmap <C-g> :GoDecls<cr>
 nmap <leader>r :call LanguageClient_textDocument_references()<CR>
 
+
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"

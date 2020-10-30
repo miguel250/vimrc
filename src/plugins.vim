@@ -13,7 +13,6 @@ Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bi
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/Yggdroot/indentLine'
 Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
-Plug 'https://github.com/ervandew/supertab'
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/cakebaker/scss-syntax.vim'
