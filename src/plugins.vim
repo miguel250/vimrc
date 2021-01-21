@@ -70,7 +70,6 @@ let g:airline_theme='gruvbox'
 
 "" Enable deoplete
 let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('ignore_sources', {'_': ['around', 'buffer']})
 
 "" ack.vim configuration
 if executable('rg')
@@ -115,27 +114,30 @@ let g:LanguageClient_diagnosticsDisplay = {
   \         "texthl": "ALEError",
   \         "signText": "●",
   \         "signTexthl": "ALEErrorSign",
+  \         "virtualTexthl": "Error",
   \     },
   \     2: {
   \         "name": "Warning",
   \         "texthl": "ALEWarning",
   \         "signText": "⚠",
   \         "signTexthl": "ALEWarningSign",
+  \         "virtualTexthl": "Todo",
   \     },
   \     3: {
   \         "name": "Information",
   \         "texthl": "ALEInfo",
   \         "signText": "ℹ",
   \         "signTexthl": "ALEInfoSign",
+  \         "virtualTexthl": "Todo",
   \     },
   \     4: {
   \         "name": "Hint",
   \         "texthl": "ALEInfo",
   \         "signText": "⨯",
   \         "signTexthl": "ALEInfoSign",
+  \         "virtualTexthl": "Todo",
   \     },
   \ }
-let g:LanguageClient_settingsPath = $VIMHOME.'/settings.json'
 let g:LanguageClient_serverCommands = {
   \ 'typescript': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
   \ 'typescriptreact': ['typescript-language-server', '--stdio'],

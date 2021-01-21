@@ -21,7 +21,7 @@
       }
     }
   },
-  "initializationOptions": {
+  "gopls": {
     "completeUnimported": true,
     "staticcheck": true,
     "analyses": {
