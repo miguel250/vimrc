@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 24
+let $plugin_revision = 25
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -89,6 +89,7 @@ let g:fzf_action = {
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 0
 let g:go_code_completion_enabled = 0
 let g:go_test_show_name = 1
 let g:go_def_reuse_buffer = 1
