@@ -62,3 +62,13 @@ function! s:check_back_space() abort
 endfunction
 
 
+" Plug
+function! AsyncDo(command)
+  if has('nvim')
+    return printf(':tabnew | call termopen(%s) | tabprev', string(a:command))
+  elseif exists('$TMUX_PANE')
+    return printf('tmux new-window -d "%s"', escape(a:command, '"'))
+  endif
+  return a:command
+endfunction
+

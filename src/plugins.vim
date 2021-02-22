@@ -26,7 +26,7 @@ Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 Plug 'https://github.com/kamykn/spelunker.vim'
 Plug 'https://github.com/kamykn/popup-menu.nvim'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
-Plug 'https://github.com/rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+Plug 'https://github.com/rodrigore/coc-tailwind-intellisense', {'do':  AsyncDo('npm install')}
 
 if filereadable($VIMHOME.'/local_plugins.vim')
   :source $VIMHOME/local_plugins.vim
