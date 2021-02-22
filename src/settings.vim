@@ -19,7 +19,7 @@ set hidden                      " Keep change buffer without writing them to dis
 set autochdir                   " change to current buffer directory
 set ruler                       " Show the cursor position all the time
 set noerrorbells                " No beeps
-set number                      " Show line numbers
+set number relativenumber
 set ignorecase                  " Case insensitive search
 set smartcase                   " Don't ignore case if pattern starts with upper case
 set confirm                     " Confirm while closing file
