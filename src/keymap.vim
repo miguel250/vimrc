@@ -68,3 +68,19 @@ nmap <leader>r :call LanguageClient_textDocument_references()<CR>
 
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
+
+nmap <silent> <Leader>d :call <SID>show_documentation()<CR>
+nmap <silent> <Leader>v  <Plug>(coc-definition)
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+inoremap <silent><expr> <c-space> coc#refresh
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+

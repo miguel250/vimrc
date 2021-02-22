@@ -38,32 +38,27 @@ endfunction
 
 command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
 
-function! LC_maps()
-  if !exists("g:vimrc_lang_auto_format") &&  &filetype !=# 'go'
-    let g:vimrc_lang_auto_format = 1
-  endif
-
-  if has_key(g:LanguageClient_serverCommands, &filetype)
-    nmap   <silent> <Leader>d :call LanguageClient#textDocument_hover()<cr>
-    nmap   <silent> <Leader>v :call LanguageClient#textDocument_definition({'gotoCmd':'vsplit'})<cr>
-
-    autocmd VimEnter * inoremap <expr> <cr> ((pumvisible()) ? (deoplete#close_popup()) : ("\<cr>"))
-
-    if g:vimrc_lang_auto_format
-      autocmd BufWritePre * :call LanguageClient#textDocument_formatting_sync()
-    endif
-  endif
-endfunction
-
-augroup LanguageClient_config
-    autocmd!
-    autocmd User LanguageClientStarted setlocal signcolumn=yes
-    autocmd User LanguageClientStopped setlocal signcolumn=auto
-augroup END
-
 augroup numbertoggle
   autocmd!
   autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+
+" coc
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 

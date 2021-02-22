@@ -1,0 +1,26 @@
+{
+  "coc.preferences.extensionUpdateCheck": "never",
+  "npm.binPath": "yarn",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "*"
+  ],
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": [
+        "go.mod"
+      ],
+      "trace.server": "verbose",
+      "filetypes": [
+        "go"
+      ]
+    }
+  },
+  "list.previewSplitRight": true,
+  "suggest.enablePreview": true,
+  "coc.preferences.jumpCommand": "vsplit",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "tailwindCSS.enable": true
+}

@@ -8,7 +8,6 @@ let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
 " Load plugins
 call plug#begin($VIMHOME.'/plugged/')
 Plug 'https://github.com/mileszs/ack.vim'
-Plug 'https://github.com/Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/Yggdroot/indentLine'
@@ -24,14 +23,11 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/elzr/vim-json', {'for' : 'json'}
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
-Plug 'https://github.com/Shougo/neosnippet.vim'
-Plug 'https://github.com/Shougo/neosnippet-snippets'
-Plug 'https://github.com/autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 Plug 'https://github.com/kamykn/spelunker.vim'
 Plug 'https://github.com/kamykn/popup-menu.nvim'
+Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/rodrigore/coc-tailwind-intellisense', {'do': 'npm install'}
+
 if filereadable($VIMHOME.'/local_plugins.vim')
   :source $VIMHOME/local_plugins.vim
 endif
@@ -42,6 +38,7 @@ if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
   for f in split(globpath($VIMHOME.'/plugged', '*.txt'), '\n')
     :call delete(f)
   endfor
+  :call delete($VIMHOME.'/plugged/coc', 'rf')
 endif
 
 if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
@@ -68,8 +65,6 @@ highlight BufTabLineFill ctermbg=black
 "" Airline
 let g:airline_theme='gruvbox'
 
-"" Enable deoplete
-let g:deoplete#enable_at_startup = 1
 
 "" ack.vim configuration
 if executable('rg')
@@ -103,47 +98,16 @@ let g:go_gocode_unimported_packages = 1
 let g:vim_json_syntax_conceal = 0
 let g:neosnippet#enable_complete_done = 1
 
-"LanguageClient-neovim
-let g:LanguageClient_settingsPath = $VIMHOME.'/settings.json'
-let g:LanguageClient_hasSnippetSupport = 1
-let g:LanguageClient_echoProjectRoot = 0
-let g:LanguageClient_hoverPreview = "always"
-let g:LanguageClient_diagnosticsDisplay = {
-  \     1: {
-  \         "name": "Error",
-  \         "texthl": "ALEError",
-  \         "signText": "●",
-  \         "signTexthl": "ALEErrorSign",
-  \         "virtualTexthl": "Error",
-  \     },
-  \     2: {
-  \         "name": "Warning",
-  \         "texthl": "ALEWarning",
-  \         "signText": "⚠",
-  \         "signTexthl": "ALEWarningSign",
-  \         "virtualTexthl": "Todo",
-  \     },
-  \     3: {
-  \         "name": "Information",
-  \         "texthl": "ALEInfo",
-  \         "signText": "ℹ",
-  \         "signTexthl": "ALEInfoSign",
-  \         "virtualTexthl": "Todo",
-  \     },
-  \     4: {
-  \         "name": "Hint",
-  \         "texthl": "ALEInfo",
-  \         "signText": "⨯",
-  \         "signTexthl": "ALEInfoSign",
-  \         "virtualTexthl": "Todo",
-  \     },
-  \ }
-let g:LanguageClient_serverCommands = {
-  \ 'typescript': ['typescript-language-server', '--tsserver-log-file', '/tmp/test.log', '--stdio'],
-  \ 'typescriptreact': ['typescript-language-server', '--stdio'],
-  \ 'javascript': ['typescript-language-server', '--stdio'],
-  \ 'css': ['css-languageserver', '--stdio'],
-  \ 'scss': ['css-languageserver', '--stdio'],
-  \ 'python': [$VIMHOME.'/env/bin/pyls'],
-  \ 'go': ['gopls'],
-  \}
+" Emmet
+let g:user_emmet_leader_key = '<c-s>'
+
+" Coc
+let g:airline#extensions#coc#enabled = 1
+let g:coc_data_home = $VIMHOME.'/plugged/coc'
+let g:coc_global_extensions = [
+      \ 'coc-json@1.3.4',
+      \ 'coc-tsserver@1.6.7',
+      \ 'coc-yaml@1.3.0',
+      \ 'coc-emmet@1.1.6',
+      \ 'coc-css@1.2.6',
+      \ ]
