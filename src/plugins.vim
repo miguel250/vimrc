@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 26
+let $plugin_revision = 27
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -27,6 +27,8 @@ Plug 'https://github.com/kamykn/spelunker.vim'
 Plug 'https://github.com/kamykn/popup-menu.nvim'
 Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/rodrigore/coc-tailwind-intellisense', {'do':  AsyncDo('npm install')}
+Plug 'https://github.com/mattn/emmet-vim'
+Plug 'https://github.com/ryanoasis/vim-devicons'
 
 if filereadable($VIMHOME.'/local_plugins.vim')
   :source $VIMHOME/local_plugins.vim
@@ -64,6 +66,8 @@ highlight BufTabLineFill ctermbg=black
 
 "" Airline
 let g:airline_theme='gruvbox'
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
 
 
 "" ack.vim configuration
@@ -99,7 +103,8 @@ let g:vim_json_syntax_conceal = 0
 let g:neosnippet#enable_complete_done = 1
 
 " Emmet
-let g:user_emmet_leader_key = '<c-s>'
+let g:user_emmet_complete_tag = 1
+let g:emmet_install_only_plug = 1
 
 " Coc
 let g:airline#extensions#coc#enabled = 1
@@ -110,4 +115,7 @@ let g:coc_global_extensions = [
       \ 'coc-yaml@1.3.0',
       \ 'coc-emmet@1.1.6',
       \ 'coc-css@1.2.6',
+      \ 'coc-html@1.4.1',
+      \ 'coc-explorer@0.15.7',
       \ ]
+

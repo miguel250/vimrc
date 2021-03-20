@@ -45,7 +45,7 @@ nnoremap <C-x> :bnext<CR>
 nnoremap <C-z> :bprev<CR>
 
 " Vinege
-map <silent> - :call ToggleVExplorer()<CR>
+map <silent> - :CocCommand explorer<CR>
 
 " Yank to system clipboad
 vnoremap <silent> y y:call system('yank', @0)<Return>
@@ -63,19 +63,19 @@ nnoremap <silent> <F1> :source $MYVIMRC<CR>
 
 " vim-go
 nmap <C-g> :GoDecls<cr>
-nmap <leader>r :call LanguageClient_textDocument_references()<CR>
-
 
 inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 
-nmap <silent> <Leader>d :call <SID>show_documentation()<CR>
+nmap <silent> <Leader>d :call Show_documentation()<CR>
 nmap <silent> <Leader>v  <Plug>(coc-definition)
 
-inoremap <silent><expr> <TAB>
+imap <expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ Is_emmet_expandable() ?  emmet#expandAbbrIntelligent("\<tab>") :
+      \ Check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 autocmd CursorHold * silent call CocActionAsync('highlight')

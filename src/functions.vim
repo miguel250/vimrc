@@ -2,27 +2,6 @@
 " VIM functions
 "
 
-" Toggle Vexplore
-" https://stackoverflow.com/a/5636941
-function! ToggleVExplorer()
-  if exists("t:expl_buf_num")
-      let expl_win_num = bufwinnr(t:expl_buf_num)
-      if expl_win_num != -1
-          let cur_win_nr = winnr()
-          exec expl_win_num . 'wincmd w'
-          close
-          exec cur_win_nr . 'wincmd w'
-          unlet t:expl_buf_num
-      else
-          unlet t:expl_buf_num
-      endif
-  else
-      exec '1wincmd w'
-      Vexplore
-      let t:expl_buf_num = bufnr("%")
-  endif
-endfunction
-
 " fzf
 " Jump to file if file is already opened
 function! s:GotoOrOpen(command, ...)
@@ -46,7 +25,7 @@ augroup END
 
 
 " coc
-function! s:show_documentation()
+function! Show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   elseif (coc#rpc#ready())
@@ -56,7 +35,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-function! s:check_back_space() abort
+function! Check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -72,3 +51,8 @@ function! AsyncDo(command)
   return a:command
 endfunction
 
+
+" Emmet
+function! Is_emmet_expandable()
+  return exists('g:loaded_emmet_vim') && &filetype=~? 'html' && emmet#isExpandable()
+endfunction
