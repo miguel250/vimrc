@@ -1,14 +1,16 @@
 {
   "enabled": true,
   "pyls": {
-    "configurationSources": ["flake8"],
+    "configurationSources": [
+      "flake8"
+    ],
     "plugins": {
       "flake8": {
         "enabled": true
       },
       "pyls_mypy": {
-          "enabled": true,
-          "live_mode": true
+        "enabled": true,
+        "live_mode": true
       },
       "pycodestyle": {
         "enabled": false
@@ -17,16 +19,26 @@
         "enabled": true
       },
       "pylint": {
-          "enabled": true
+        "enabled": true
       }
     }
   },
   "gopls": {
-    "completeUnimported": true,
+    "rootPatterns": [
+      "go.mod",
+      ".git/"
+    ],
+    "filetypes": [
+      "go"
+    ],
     "staticcheck": true,
-    "analyses": {
-      "unreachable": true
+    "initializationOptions": {
+      "analyses": {
+        "fieldalignment": true,
+        "unreachable": true
+      },
+      "completeUnimported": true,
+      "usePlaceholders": true
     }
   }
 }
-

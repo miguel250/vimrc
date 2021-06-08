@@ -19,3 +19,4 @@ au BufRead,BufNewFile *.scss set filetype=scss.css
 
 " coc
 autocmd CursorHold * silent call CocActionAsync('highlight')
+autocmd BufWritePre *.go :call CocActionAsync('runCommand', 'editor.action.organizeImport')

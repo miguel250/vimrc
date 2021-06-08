@@ -1,9 +1,9 @@
 {
-  "coc.preferences.extensionUpdateCheck": "never",
-  "npm.binPath": "yarn",
   "coc.preferences.formatOnSaveFiletypes": [
     "*"
   ],
+  "coc.preferences.extensionUpdateCheck": "never",
+  "npm.binPath": "yarn",
   "languageserver": {
     "go": {
       "command": "gopls",

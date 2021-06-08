@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 27
+let $plugin_revision = 28
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -29,6 +29,7 @@ Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
 Plug 'https://github.com/rodrigore/coc-tailwind-intellisense', {'do':  AsyncDo('npm install')}
 Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/ryanoasis/vim-devicons'
+Plug 'https://github.com/cespare/vim-toml'
 
 if filereadable($VIMHOME.'/local_plugins.vim')
   :source $VIMHOME/local_plugins.vim
