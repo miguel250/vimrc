@@ -1,6 +1,8 @@
 " ----------------------------------------- "
 " File Type settings                        "
 " ----------------------------------------- "
+" spell check for all files
+autocmd! InsertLeave * call spelunker#words#check_display_area()
 
 " fix issue with vinegar and not being able to close netrw
 autocmd FileType netrw setl bufhidden=wipe
@@ -17,3 +19,4 @@ au BufRead,BufNewFile *.scss set filetype=scss.css
 " coc
 autocmd CursorHold * silent call CocActionAsync('highlight')
 autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+

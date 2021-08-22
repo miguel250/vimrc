@@ -21,6 +21,8 @@ Plug 'https://github.com/fatih/vim-go', { 'for': 'go', 'do': ':GoUpdateBinaries'
 Plug 'https://github.com/tpope/vim-vinegar'
 Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/morhetz/gruvbox'
+Plug 'https://github.com/kamykn/spelunker.vim'
+Plug 'https://github.com/kamykn/popup-menu.nvim'
 Plug 'https://github.com/elzr/vim-json', {'for' : 'json'}
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 Plug 'https://github.com/neoclide/coc.nvim'
@@ -48,6 +50,8 @@ if !filereadable($VIMHOME.'/plugged/'.$plugin_revision.'.txt')
   :source $VIMHOME/src/snapshot.vim
   :source $MYVIMRC
 endif
+
+let g:spelunker_check_type = 2
 
 "" indentLine
 let g:indentLine_enabled = 1
@@ -118,6 +122,5 @@ let g:coc_global_extensions = [
       \ 'coc-css@1.2.6',
       \ 'coc-html@1.4.1',
       \ 'coc-explorer@0.18.14',
-      \ 'coc-spell-checker@1.2.0',
       \ ]
 
