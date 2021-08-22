@@ -19,6 +19,7 @@ done
 cd $PROJECT_ROOT
 
 rm -rf env/
+rm -rf $HOME/.cache/vim 2> /dev/null
 yarn install
 go install golang.org/x/tools/gopls
 pip3 install --upgrade --user virtualenv

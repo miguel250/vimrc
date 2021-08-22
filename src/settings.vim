@@ -55,4 +55,4 @@ set colorcolumn=80
 
 " persistent undo
 set undofile
-set undodir=~/.cache/vim
+set undodir=/tmp/vim
