@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 28
+let $plugin_revision = 29
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -23,9 +23,7 @@ Plug 'https://github.com/tpope/vim-commentary'
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/elzr/vim-json', {'for' : 'json'}
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
-Plug 'https://github.com/kamykn/spelunker.vim'
-Plug 'https://github.com/kamykn/popup-menu.nvim'
-Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'release'}
+Plug 'https://github.com/neoclide/coc.nvim'
 Plug 'https://github.com/rodrigore/coc-tailwind-intellisense', {'do':  AsyncDo('npm install')}
 Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/ryanoasis/vim-devicons'
@@ -88,6 +86,7 @@ let g:fzf_action = {
 let g:go_def_mode='gopls'
 let g:go_info_mode='gopls'
 let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
 let g:go_fmt_autosave = 0
 let g:go_code_completion_enabled = 0
 let g:go_test_show_name = 1
@@ -98,6 +97,7 @@ let g:go_highlight_operators = 1
 let g:go_gocode_propose_source = 1
 let g:go_highlight_function_parameters = 1
 let g:go_gocode_unimported_packages = 1
+let g:go_metalinter_autosave = 1
 
 " vim json
 let g:vim_json_syntax_conceal = 0
@@ -111,12 +111,13 @@ let g:emmet_install_only_plug = 1
 let g:airline#extensions#coc#enabled = 1
 let g:coc_data_home = $VIMHOME.'/plugged/coc'
 let g:coc_global_extensions = [
-      \ 'coc-json@1.3.4',
-      \ 'coc-tsserver@1.6.7',
-      \ 'coc-yaml@1.3.0',
+      \ 'coc-json@1.3.6',
+      \ 'coc-tsserver@1.8.6',
+      \ 'coc-yaml@1.4.2',
       \ 'coc-emmet@1.1.6',
       \ 'coc-css@1.2.6',
       \ 'coc-html@1.4.1',
-      \ 'coc-explorer@0.15.7',
+      \ 'coc-explorer@0.18.14',
+      \ 'coc-spell-checker@1.2.0',
       \ ]
 

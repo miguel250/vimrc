@@ -27,9 +27,8 @@ imap <Right> <NOP>
 let blacklist = ['markdown', 'md']
 autocmd BufWritePre * StripWhitespace
 
-map <leader>ss <Plug>(spelunker-correct-from-list)
-nmap <leader>sn <Plug>(spelunker-jump-next)
-nmap <leader>sp <Plug>(spelunker-jump-prev)
+vmap <leader>ss <Plug>(coc-codeaction-selected)
+nmap <leader>ss <Plug>(coc-codeaction-selected)
 
 " trim all whitespaces away
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
