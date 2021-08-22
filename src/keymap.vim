@@ -40,9 +40,31 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
+"" rotate window
+nmap <leader><UP> <C-W>K
+nmap <leader><DOWN> <C-W>J
+nmap <leader><RIGHT> <C-W>L
+nmap <leader><LEFT> <C-W>H
+
+"" swap windows
+nnoremap <silent><leader>sw :call WinBufSwap()<CR>
+
+"" focus windows
+nnoremap <silent><leader>m :wincmd _<Bar>wincmd <Bar><CR>
+nnoremap <silent><leader>r <C-W>=
+
+"" resize windows
+nnoremap <silent> <A-UP>   :call MoveSeparator("-", 0)<CR>
+nnoremap <silent> <A-DOWN> :call MoveSeparator("+", 0)<CR>
+nnoremap <silent><leader>[   :call MoveSeparator("-", 1)<CR>
+nnoremap <silent><leader>] :call MoveSeparator("+", 1)<CR>
+
+"" Split all buffers
+nnoremap <silent><leader>sb :vertical sball<CR>
+
 " Buffer prev/next
-nnoremap <C-x> :bnext<CR>
-nnoremap <C-z> :bprev<CR>
+nnoremap <silent><leader>x :bnext<CR>
+nnoremap <silent><leader>z :bprev<CR>
 
 " Vinege
 map <silent> - :CocCommand explorer<CR>
@@ -84,3 +106,11 @@ inoremap <silent><expr> <c-space> coc#refresh
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
+" Term
+tnoremap jk <C-\><C-n>
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+
+nnoremap <silent> <leader>t :call Small_terminal()<CR>

@@ -56,3 +56,39 @@ endfunction
 function! Is_emmet_expandable()
   return exists('g:loaded_emmet_vim') && &filetype=~? 'html' && emmet#isExpandable()
 endfunction
+
+function! Small_terminal() abort
+  new
+  wincmd J
+  call nvim_win_set_height(0, 10)
+  set winfixheight
+  term
+endfunction
+
+
+function! WinBufSwap()
+  let thiswin = winnr()
+  let thisbuf = bufnr("%")
+  let lastwin = winnr("#")
+  let lastbuf = winbufnr(lastwin)
+
+  exec  lastwin . " wincmd w" ."|".
+      \ "buffer ". thisbuf ."|".
+      \ thiswin ." wincmd w" ."|".
+      \ "buffer ". lastbuf
+endfunction
+
+function! MoveSeparator(PlusMinus, Vertical)
+    let num=tabpagewinnr(tabpagenr())
+    let pm=a:PlusMinus
+    let vertical=a:Vertical
+    if  num == "2"
+        let pm = pm == '+' ? '-' : '+'
+    end
+    if vertical == 1
+      exec "vertical resize " . pm . (winheight(0) * 2/3)
+      return
+    end
+    exec "resize " . pm . "1"
+endfunction
+
