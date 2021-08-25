@@ -4,18 +4,18 @@
 
 " fzf
 " Jump to file if file is already opened
-function! s:GotoOrOpen(command, ...)
+function! GotoOrOpen(command, ...)
   for file in a:000
-    let a:bufnr = win_findbuf(bufnr(file))
-    if len(a:bufnr) == 0
+    let result = win_findbuf(bufnr(file))
+    if len(result) == 0
       exec a:command . ' ' . file
     else
-      call win_gotoid(a:bufnr[0])
+      call win_gotoid(result[0])
     endif
   endfor
 endfunction
 
-command! -nargs=+ GotoOrOpen call s:GotoOrOpen(<f-args>)
+command! -nargs=+ GotoOrOpen call GotoOrOpen(<f-args>)
 
 augroup numbertoggle
   autocmd!
