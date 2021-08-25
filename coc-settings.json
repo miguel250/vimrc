@@ -49,6 +49,7 @@
     "c": [
       "wait",
       "cd"
-    ]
+    ],
+    "e": "open:vsplit"
   }
 }
