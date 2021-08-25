@@ -41,10 +41,10 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 "" rotate window
-nmap <leader><UP> <C-W>K
-nmap <leader><DOWN> <C-W>J
-nmap <leader><RIGHT> <C-W>L
-nmap <leader><LEFT> <C-W>H
+nmap <leader>k <C-W>K
+nmap <leader>j <C-W>J
+nmap <leader>l <C-W>L
+nmap <leader>h <C-W>H
 
 "" swap windows
 nnoremap <silent><leader>sw :call WinBufSwap()<CR>
@@ -73,8 +73,8 @@ map <silent> - :CocCommand explorer<CR>
 vnoremap <silent> y y:call system('yank', @0)<Return>
 
 " fzf
-nnoremap <silent> <C-a> :FZF<CR>
-imap <C-a> <esc>:<C-u> :FZF<cr>
+nnoremap <silent> <C-p> :FZF<CR>
+imap <C-p> <esc>:<C-u> :FZF<cr>
 
 " search
 nmap <C-p> :History<cr>
@@ -114,3 +114,6 @@ tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 
 nnoremap <silent> <leader>t :call Small_terminal()<CR>
+
+" FZF
+nmap <leader><tab> :RG<CR>
