@@ -81,6 +81,7 @@ endif
 
 "" fzf
 let g:fzf_layout = { 'down': '~20%' }
+let $FZF_DEFAULT_OPTS = '--bind alt-j:down,alt-k:up'
 
 let g:fzf_action = {
   \ 'enter': 'GotoOrOpen vsplit'
