@@ -13,7 +13,14 @@
       "trace.server": "verbose",
       "filetypes": [
         "go"
-      ]
+      ],
+      "initializationOptions": {
+        "usePlaceholders": true,
+        "buildFlags": [
+          "-tags=integration",
+          "-tags=e2e"
+        ]
+      }
     },
     "terraform": {
       "command": "terraform-ls",
