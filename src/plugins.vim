@@ -26,7 +26,6 @@ Plug 'https://github.com/kamykn/popup-menu.nvim'
 Plug 'https://github.com/elzr/vim-json', {'for' : 'json'}
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
 Plug 'https://github.com/neoclide/coc.nvim'
-Plug 'https://github.com/rodrigore/coc-tailwind-intellisense', {'do':  AsyncDo('npm install')}
 Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/cespare/vim-toml'
