@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 29
+let $plugin_revision = 30
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -11,7 +11,6 @@ Plug 'https://github.com/mileszs/ack.vim'
 Plug 'https://github.com/junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/Yggdroot/indentLine'
-Plug 'https://github.com/Shougo/neco-vim', {'for': 'vim'}
 Plug 'https://github.com/vim-airline/vim-airline'
 Plug 'https://github.com/vim-airline/vim-airline-themes'
 Plug 'https://github.com/cakebaker/scss-syntax.vim'
