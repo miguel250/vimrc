@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 30
+let $plugin_revision = 31
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -24,7 +24,7 @@ Plug 'https://github.com/kamykn/spelunker.vim'
 Plug 'https://github.com/kamykn/popup-menu.nvim'
 Plug 'https://github.com/elzr/vim-json', {'for' : 'json'}
 Plug 'https://github.com/HerringtonDarkholme/yats.vim'
-Plug 'https://github.com/neoclide/coc.nvim'
+Plug 'https://github.com/neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/ryanoasis/vim-devicons'
 Plug 'https://github.com/cespare/vim-toml'
@@ -58,9 +58,15 @@ let g:indentLine_enabled = 1
 let g:racer_experimental_completer = 1
 
 "" Gruvbox
+colorscheme gruvbox
 set termguicolors     " enable true colors support
 set background=dark   " setting dark mode
-colorscheme gruvbox
+hi link CocListMode StatusLine
+hi link CocListPath StatusLine
+hi link CocSearch GruvboxGray
+hi link CocMenuSel GruvboxOrange
+
+
 
 "" Buftabline
 highlight BufTabLineFill ctermbg=black
@@ -114,12 +120,13 @@ let g:emmet_install_only_plug = 1
 let g:airline#extensions#coc#enabled = 1
 let g:coc_data_home = $VIMHOME.'/plugged/coc'
 let g:coc_global_extensions = [
-      \ 'coc-json@1.3.6',
-      \ 'coc-tsserver@1.8.6',
-      \ 'coc-yaml@1.4.2',
+      \ 'coc-json@1.4.2',
+      \ 'coc-tsserver@1.10.5',
+      \ 'coc-yaml@1.7.5',
       \ 'coc-emmet@1.1.6',
-      \ 'coc-css@1.2.6',
-      \ 'coc-html@1.4.1',
-      \ 'coc-explorer@0.18.14',
+      \ 'coc-css@1.3.0',
+      \ 'coc-html@1.6.1',
+      \ 'coc-explorer@0.24.4',
+      \ 'coc-pyright@1.1.262',
       \ ]
 

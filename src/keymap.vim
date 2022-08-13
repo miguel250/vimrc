@@ -93,7 +93,7 @@ nmap <silent> <Leader>d :call Show_documentation()<CR>
 nmap <silent> <Leader>v  <Plug>(coc-definition)
 
 imap <expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ coc#pum#visible() ? "\<C-n>" :
       \ Is_emmet_expandable() ?  emmet#expandAbbrIntelligent("\<tab>") :
       \ Check_back_space() ? "\<TAB>" :
       \ coc#refresh()
@@ -103,7 +103,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
 inoremap <silent><expr> <c-space> coc#refresh
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <cr>  coc#pum#visible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Term

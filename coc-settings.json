@@ -4,10 +4,21 @@
     "python"
   ],
   "coc.preferences.extensionUpdateCheck": "never",
+  "suggest.autoTrigger": "always",
+  "suggest.timeout": 5000,
+  "suggest.detailField": "preview",
+  "suggest.completionItemKindLabels": {
+    "class": "\uf0e8",
+    "color": "\ue22b"
+  },
   "npm.binPath": "yarn",
   "languageserver": {
     "go": {
       "command": "gopls",
+      "args": [
+        "-remote=auto",
+        "-rpc.trace"
+      ],
       "rootPatterns": [
         "go.mod"
       ],
@@ -16,7 +27,11 @@
         "go"
       ],
       "initializationOptions": {
+        "staticcheck": true,
         "usePlaceholders": true,
+        "analyses": {
+          "shadow": true
+        },
         "buildFlags": [
           "-tags=integration",
           "-tags=e2e"
