@@ -27,3 +27,5 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 
 autocmd TermOpen * setlocal nonumber norelativenumber
 
+
+autocmd FileType python let b:coc_root_patterns = ['.git', '.env']
