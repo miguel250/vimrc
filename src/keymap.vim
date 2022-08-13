@@ -24,7 +24,7 @@ imap <Right> <NOP>
 " ========= vim-better-whitespace ==================
 
 " auto strip whitespace except for file with extention blacklisted
-let blacklist = ['markdown', 'md']
+let blacklist = ['markdown', 'md', 'gitcommit', 'diff']
 autocmd BufWritePre * StripWhitespace
 
 map <leader>ss <Plug>(spelunker-correct-from-list)
