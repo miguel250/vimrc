@@ -58,6 +58,7 @@
     "javascript": "javascriptreact"
   },
   "tailwindCSS.enable": true,
+  "rust-analyzer.enable": true,
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": "labeling",

@@ -128,5 +128,6 @@ let g:coc_global_extensions = [
       \ 'coc-html@1.6.1',
       \ 'coc-explorer@0.24.4',
       \ 'coc-pyright@1.1.262',
+      \ 'coc-rust-analyzer@0.69.4',
       \ ]
 
