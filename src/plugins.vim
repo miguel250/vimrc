@@ -1,6 +1,6 @@
 " Increase revision after adding a new plugin. This will deleted
 " the plugged folder and redownload all plugs.
-let $plugin_revision = 32
+let $plugin_revision = 33
 
 " make sure nodejs modules are available for language client
 let $PATH .= ':'. $VIMHOME. '/node_modules/.bin/'
@@ -122,16 +122,17 @@ let g:airline#extensions#coc#enabled = 1
 let g:coc_data_home = $VIMHOME.'/plugged/coc'
 let g:coc_global_extensions = [
       \ 'coc-json@1.8.0',
-      \ 'coc-tsserver@2.1.0',
+      \ 'coc-tsserver@2.1.3',
       \ 'coc-yaml@1.9.0',
       \ 'coc-emmet@1.1.6',
       \ 'coc-css@2.0.0',
       \ 'coc-html@1.8.0',
-      \ 'coc-explorer@0.25.4',
-      \ 'coc-pyright@1.1.283',
-      \ 'coc-rust-analyzer@0.70.0',
+      \ 'coc-explorer@0.26.3',
+      \ 'coc-pyright@1.1.293',
+      \ 'coc-rust-analyzer@0.72.1',
       \ ]
 
+set clipboard^=unnamed,unnamedplus
 if !empty($TMUX) && !empty($SSH_CONNECTION)
   let g:oscyank_term = 'default'
   let g:oscyank_max_length = 1000000
