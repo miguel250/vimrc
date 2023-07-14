@@ -11,7 +11,7 @@ if not vim.loop.fs_stat(revision_file) then
   vim.fn.system {
     "touch",
     revision_file,
-1}
+  }
   require("lazy").restore()
 end
 
