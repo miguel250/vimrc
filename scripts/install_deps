@@ -4,4 +4,7 @@ SCRIPTS_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PROJECT_ROOT="$SCRIPTS_DIR/../"
 
 rm -rf $HOME/.cache/vim 2> /dev/null
+rm -rf $PROJECT_ROOT/plugged/
+rm -rf $PROJECT_ROOT/node_modules/
+rm -rf $PROJECT_ROOT/env/
 
