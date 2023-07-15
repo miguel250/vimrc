@@ -53,52 +53,48 @@ return {
                     additional_vim_regex_highlighting = false,
                 },
                 textobjects = {
+                    move = {
+                        enable = true,
+                        set_jumps = true,
+                        goto_next_start = {
+                            ["]p"] = "@parameter.inner",
+                            ["]m"] = "@function.outer",
+                            ["]]"] = "@class.outer",
+                        },
+                        goto_next_end = {
+                            ["]M"] = "@function.outer",
+                            ["]["] = "@class.outer",
+                        },
+                        goto_previous_start = {
+                            ["[p"] = "@parameter.inner",
+                            ["[m"] = "@function.outer",
+                            ["[["] = "@class.outer",
+                        },
+                        goto_previous_end = {
+                            ["[M"] = "@function.outer",
+                            ["[]"] = "@class.outer",
+                        },
+                    },
+
                     select = {
                         enable = true,
-                        lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+                        lookahead = true,
                         keymaps = {
-                            -- You can use the capture groups defined in textobjects.scm
-                            ['aa'] = '@parameter.outer',
-                            ['ia'] = '@parameter.inner',
-                            ['af'] = '@function.outer',
-                            ['if'] = '@function.inner',
-                            ['ac'] = '@class.outer',
-                            ['ic'] = '@class.inner',
-                            ["iB"] = "@block.inner",
-                            ["aB"] = "@block.outer",
+                            ["af"] = "@function.outer",
+                            ["if"] = "@function.inner",
+                            ["ac"] = "@conditional.outer",
+                            ["ic"] = "@conditional.inner",
+                            ["aa"] = "@parameter.outer",
+                            ["ia"] = "@parameter.inner",
                             ["av"] = "@variable.outer",
                             ["iv"] = "@variable.inner",
                         },
                     },
-                    move = {
-                        enable = true,
-                        set_jumps = true, -- whether to set jumps in the jumplist
-                        goto_next_start = {
-                            [']]'] = '@function.outer',
-                        },
-                        goto_next_end = {
-                            [']['] = '@function.outer',
-                        },
-                        goto_previous_start = {
-                            ['[['] = '@function.outer',
-                        },
-                        goto_previous_end = {
-                            ['[]'] = '@function.outer',
-                        },
-                    },
-                    swap = {
-                        enable = true,
-                        swap_previous = {
-                            ['<leader>sp'] = '@parameter.inner',
-                        },
-                        swap_next = {
-                            ['<leader>sn'] = '@parameter.inner',
-                        },
-                    },
+
                 },
                 context_commentstring = {
                     enable = true,
-                    enable_autocmd = false,
+                    enable_autocmd = true,
                     config = {
                         c = "// %s",
                         lua = "-- %s",
