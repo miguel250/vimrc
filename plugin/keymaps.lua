@@ -21,3 +21,6 @@ vim.keymap.set('', '<C-l>', '<C-W>l')
 
 -- Reload VIM configuration
 vim.keymap.set('n', '<leader>r', ':so %<CR>')
+
+vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>f', ':NvimTreeFindFile!<CR>', { noremap = true })
