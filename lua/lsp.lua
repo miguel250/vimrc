@@ -10,11 +10,11 @@ require("mason-lspconfig").setup {
 }
 
 
--- local registry = require "mason-registry"
--- local ok, pkg = pcall(registry.get_package, "codespell")
--- if ok and not pkg:is_installed() then
---     pkg.install(pkg)
--- end
+local registry = require "mason-registry"
+local ok, pkg = pcall(registry.get_package, "write-good")
+if ok and not pkg:is_installed() then
+    pkg.install(pkg)
+end
 
 require("neodev").setup {
     override = function(_, library)
