@@ -126,6 +126,12 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', 'lr', vim.lsp.buf.rename, bufopts)
 
     vim.keymap.set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
+
+    -- highlighting is broken via lsp for these languages
+    local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+    if filetype == "typescript" or filetype == "lua" then
+        client.server_capabilities.semanticTokensProvider = nil
+    end
 end
 
 local updated_capabilities = vim.lsp.protocol.make_client_capabilities()

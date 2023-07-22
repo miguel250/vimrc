@@ -3,6 +3,8 @@ local opt = vim.opt
 opt.encoding = "utf-8"
 opt.termguicolors = true
 opt.belloff = "all" -- Just turn the dang bell off
+opt.spell = true
+opt.spelloptions = "noplainbuffer"
 
 opt.wildignore = "__pycache__"
 opt.wildignore:append { "*.o", "*~", "*.pyc", "*pycache*" }
