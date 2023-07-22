@@ -1,3 +1,6 @@
+local registry = require "mason-registry"
+registry.refresh()
+
 require("mason").setup()
 require("mason-lspconfig").setup {
     ensure_installed = {
@@ -11,7 +14,6 @@ require("mason-lspconfig").setup {
 }
 
 
-local registry = require "mason-registry"
 local ok, pkg = pcall(registry.get_package, "write-good")
 if ok and not pkg:is_installed() then
     pkg.install(pkg)

@@ -1,11 +1,8 @@
 return {
     {
-        "williamboman/mason.nvim",
-        build = ":MasonUpdate",
-    },
-    {
         "neovim/nvim-lspconfig",
         dependencies = {
+            "williamboman/mason.nvim",
             "williamboman/mason-lspconfig.nvim",
             "folke/neodev.nvim",
             "b0o/schemastore.nvim",
