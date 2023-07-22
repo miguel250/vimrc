@@ -6,6 +6,7 @@ require("mason-lspconfig").setup {
         "yamlls",
         "golangci_lint_ls",
         "gopls",
+        "rust_analyzer",
     },
 }
 
@@ -105,6 +106,24 @@ local servers = {
         yaml = {
             validate = { enable = true },
             schemas = require('schemastore').yaml.schemas(),
+        },
+    },
+    rust_analyzer = {
+        ['rust-analyzer'] = {
+            imports = {
+                granularity = {
+                    group = 'module',
+                },
+                prefix = 'self',
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true,
+            },
         },
     }
 }
