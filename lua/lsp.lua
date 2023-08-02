@@ -1,5 +1,4 @@
 local registry = require "mason-registry"
-registry.refresh()
 
 require("mason").setup()
 require("mason-lspconfig").setup {
@@ -10,14 +9,22 @@ require("mason-lspconfig").setup {
         "golangci_lint_ls",
         "gopls",
         "rust_analyzer",
+        "pyright",
     },
 }
 
 
-local ok, pkg = pcall(registry.get_package, "write-good")
-if ok and not pkg:is_installed() then
-    pkg.install(pkg)
+local install_pkg = function(name)
+    registry.refresh()
+    local ok, pkg = pcall(registry.get_package, name)
+    if ok and not pkg:is_installed() then
+        pkg.install(pkg)
+    end
 end
+
+
+install_pkg("isort")
+install_pkg("write-good")
 
 require("neodev").setup {
     override = function(_, library)
@@ -49,6 +56,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 local servers = {
+    pyright = true,
     golangci_lint_ls = true,
     gopls = {
         settings = {
