@@ -70,9 +70,11 @@ cmp.setup({
         behavior = cmp.ConfirmBehavior.Insert,
     },
     sorting = {
+        priority_weight = 2,
         comparators = {
             cmp.config.compare.offset,
             cmp.config.compare.exact,
+            cmp.config.compare.scopes,
             cmp.config.compare.score,
 
             function(entry1, entry2)
@@ -87,6 +89,8 @@ cmp.setup({
                 end
             end,
 
+            cmp.config.compare.recently_used,
+            cmp.config.compare.locality,
             cmp.config.compare.kind,
             cmp.config.compare.sort_text,
             cmp.config.compare.length,
