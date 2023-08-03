@@ -52,6 +52,26 @@ telescope.setup {
             }
         },
     },
+    pickers = {
+        spell_suggest = {
+            initial_mode = 'normal',
+            layout_strategy = 'cursor',
+
+            prompt_title = "",
+            layout_config = {
+                height = 0.2,
+                width = 0.25
+            },
+            mappings = {
+                i = {
+                    ["<CR>"] = actions.select_default,
+                },
+                n = {
+                    ["<CR>"] = actions.select_default,
+                },
+            },
+        },
+    },
     extensions = {
         fzf = {
             fuzzy = true,
