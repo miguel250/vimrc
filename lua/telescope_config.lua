@@ -53,6 +53,16 @@ telescope.setup {
         },
     },
     pickers = {
+        diagnostics = {
+            mappings = {
+                i = {
+                    ["<CR>"] = actions.select_default,
+                },
+                n = {
+                    ["<CR>"] = actions.select_default,
+                },
+            },
+        },
         spell_suggest = {
             initial_mode = 'normal',
             layout_strategy = 'cursor',
@@ -105,8 +115,9 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<space>fg', builtin.git_files, {})
 vim.keymap.set('n', '<space>fd', builtin.find_files, {})
 vim.keymap.set('n', '<space>ls', builtin.lsp_document_symbols, {})
-vim.keymap.set('n', '<leader>td', builtin.diagnostics, {})
+vim.keymap.set('n', '<leader>td', function() builtin.diagnostics { bufnr = 0 } end, {})
 vim.keymap.set('n', '<leader>gs', builtin.grep_string, {})
 vim.keymap.set('n', '<leader>gg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>ss', builtin.spell_suggest, {})
 vim.keymap.set('n', '-', '<cmd>Telescope file_browser<CR>', { silent = true, noremap = true })
+vim.keymap.set('n', '<leader>tr', builtin.treesitter, { desc = "Show function names, variables" })

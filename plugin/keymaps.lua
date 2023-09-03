@@ -21,3 +21,7 @@ vim.keymap.set('', '<C-l>', '<C-W>l')
 
 -- Reload VIM configuration
 vim.keymap.set('n', '<leader>r', ':so %<CR>')
+
+-- Move between diagnostics
+vim.keymap.set('n', '<leader>dp', vim.diagnostic.goto_prev)
+vim.keymap.set('n', '<leader>dn', vim.diagnostic.goto_next)
