@@ -39,9 +39,13 @@ require("null-ls").setup {
     sources = {
         require("null-ls").builtins.diagnostics.write_good,
         require("null-ls").builtins.completion.spell,
+        require("null-ls").builtins.diagnostics.misspell,
         require("null-ls").builtins.formatting.prettierd,
         require("null-ls").builtins.formatting.isort,
         require("null-ls").builtins.formatting.black,
+        require("null-ls").builtins.formatting.goimports.with({
+            args = { "-rm-unused", "-srcdir", "$DIRNAME" },
+        }),
     },
 }
 
@@ -53,6 +57,16 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     callback = function()
         vim.lsp.buf.format { async = false }
     end,
+})
+
+local augroup_go_import = vim.api.nvim_create_augroup("goimports", { clear = true })
+vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_go_import }
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup_go_import,
+    pattern = "*.go",
+    callback = function(opt)
+        vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } }, apply = true })
+    end
 })
 
 local servers = {
