@@ -113,9 +113,36 @@ local servers = {
         },
     },
     yamlls = {
-        yaml = {
-            validate = { enable = true },
-            schemas = require('schemastore').yaml.schemas(),
+        settings = {
+            yaml = {
+                validate = { enable = true },
+                schemas = require('schemastore').yaml.schemas(),
+                format = {
+                    enable = true,
+                },
+                completion = true,
+                customTags = {
+                    "!fn",
+                    "!And",
+                    "!If",
+                    "!Not",
+                    "!Equals",
+                    "!Or",
+                    "!FindInMap sequence",
+                    "!Base64",
+                    "!Cidr",
+                    "!Ref",
+                    "!Ref Scalar",
+                    "!Sub",
+                    "!Or",
+                    "!GetAtt",
+                    "!GetAZs",
+                    "!ImportValue",
+                    "!Select",
+                    "!Split",
+                    "!Join sequence"
+                },
+            },
         },
     },
     rust_analyzer = {
