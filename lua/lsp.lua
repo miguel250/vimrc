@@ -10,6 +10,11 @@ require("mason-lspconfig").setup {
         "gopls",
         "rust_analyzer",
         "pyright",
+        "emmet_language_server",
+        "cssls",
+        "cssmodules_ls",
+        "eslint",
+        "tsserver",
     },
 }
 
@@ -25,6 +30,9 @@ end
 
 install_pkg("isort")
 install_pkg("write-good")
+install_pkg("golangci-lint")
+install_pkg("misspell")
+install_pkg("prettierd")
 
 require("neodev").setup {
     override = function(_, library)
@@ -72,6 +80,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 local servers = {
     pyright = true,
     golangci_lint_ls = true,
+    cssls = true,
+    cssmodules_ls = true,
+    eslint = true,
+    emmet_language_server = true,
+    tsserver = true,
     gopls = {
         settings = {
             gopls = {
