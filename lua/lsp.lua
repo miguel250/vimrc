@@ -66,6 +66,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         vim.lsp.buf.format { async = false }
     end,
 })
+-- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.format()]]
 
 local augroup_go_import = vim.api.nvim_create_augroup("goimports", { clear = true })
 vim.api.nvim_clear_autocmds { buffer = 0, group = augroup_go_import }
@@ -210,10 +211,11 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
 
     -- highlighting is broken via lsp for these languages
-    local filetype = vim.api.nvim_buf_get_option(0, "filetype")
-    if filetype == "typescript" or filetype == "lua" then
-        client.server_capabilities.semanticTokensProvider = nil
-    end
+    --  local filetype = vim.api.nvim_buf_get_option(0, "filetype")
+    -- if filetype == "typescript" or filetype == "lua" then
+    --     client.server_capabilities.semanticTokensProvider = nil
+    -- end
+    client.server_capabilities.documentFormattingProvider = true
 end
 
 local updated_capabilities = vim.lsp.protocol.make_client_capabilities()
