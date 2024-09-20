@@ -7,6 +7,7 @@ return {
     event = "BufRead",
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
+      { "nvim-treesitter/nvim-treesitter-textobjects" },
     },
     opts_extend = { "ensure_installed" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall", "TSModuleInfo" },

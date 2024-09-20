@@ -24,7 +24,6 @@ local on_attach = function(_, bufnr)
     buffer = bufnr,
     desc = "Go to next diagnostic",
   })
-  vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_next)
 end
 
 return {
