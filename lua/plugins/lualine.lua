@@ -3,19 +3,20 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
     local lsp_info = function()
-      local msg = "No Active Lsp"
       local buf_ft = vim.api.nvim_get_option_value("filetype", { scope = "local" })
       local clients = vim.lsp.get_clients()
       if next(clients) == nil then
-        return msg
+        return "No Active Lsp"
       end
+
+      local ret = {}
       for _, client in ipairs(clients) do
         local filetypes = client.config.filetypes
         if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-          return client.name
+          table.insert(ret, client.name)
         end
       end
-      return msg
+      return vim.iter(ret):join("|")
     end
 
     require("lualine").setup({
