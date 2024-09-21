@@ -14,6 +14,8 @@ if not vim.uv.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+local cleanup_triggered = require("cleanup")
+
 require("lazy").setup({
   { import = "plugins" },
   { import = "plugins.lang" },
@@ -40,3 +42,8 @@ require("lazy").setup({
     },
   },
 })
+
+if cleanup_triggered then
+  require("lazy").restore()
+  require("lazy").clean()
+end
