@@ -15,6 +15,9 @@ return {
         formatters_by_ft = {
           lua = { "stylua" },
         },
+        formatters = {
+          injected = { options = { ignore_errors = true } },
+        },
       }
     end,
     config = function(_, opts)
