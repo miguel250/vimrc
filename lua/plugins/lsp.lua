@@ -74,6 +74,7 @@ return {
             },
           },
         },
+        setup = {},
       }
     end,
     config = function(_, opts)
@@ -91,6 +92,12 @@ return {
           capabilities = vim.deepcopy(capabilities),
           on_attach = on_attach,
         }, opts.servers[server] or {})
+
+        if opts.setup[server] then
+          if opts.setup[server](server, server_opts) then
+            return
+          end
+        end
 
         require("lspconfig")[server].setup(server_opts)
       end
