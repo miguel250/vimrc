@@ -8,8 +8,7 @@ if not vim.uv.fs_stat(revision_file) then
     vim.fn.delete(f)
   end
 
-  local has_nvim_treesitter, _ = pcall(require, "nvim-treesitter")
-  if has_nvim_treesitter then
+  if vim.uv.fs_stat(vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser") then
     local treesitter_parsers = vim.fn.globpath(vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser/*", true, true)
     if type(treesitter_parsers) == "table" then
       vim.print(treesitter_parsers)
@@ -19,8 +18,7 @@ if not vim.uv.fs_stat(revision_file) then
     end
   end
 
-  local has_mason, _ = pcall(require, "mason")
-  if has_mason then
+  if vim.uv.fs_stat(vim.fn.stdpath("data") .. "/mason") then
     local mason_packages = vim.fn.stdpath("data") .. "/mason"
     vim.fn.delete(mason_packages, "rf")
   end
