@@ -31,7 +31,7 @@ return {
       "williamboman/mason.nvim",
       opts = {
         ensure_installed = {
-          "goimports",
+          "goimports-reviser",
           "gofumpt",
         },
       },
@@ -44,12 +44,12 @@ return {
         ["goimports-reviser"] = {
           prepend_args = function(_, ctx)
             local mod = get_mod_name(ctx)
-            local ret = { "-rm-unused", "-set-alias" }
+            local ret = { "-rm-unused", "-set-alias", "-use-cache" }
             if type(mod) == "table" then
               local company_prefixes = mod[1]
               local size = vim.tbl_count(mod)
               if size >= 2 then
-                company_prefixes = company_prefixes .. "/" .. mod[2]
+                company_prefixes = company_prefixes .. "/" .. mod[2] .. "/"
               end
 
               table.insert(ret, "-company-prefixes")
@@ -57,7 +57,8 @@ return {
 
               if size >= 3 then
                 table.insert(ret, "-project-name")
-                table.insert(ret, vim.iter(mod):join("/"))
+                local project_name = mod[1] .. "/" .. mod[2] .. "/" .. mod[3] .. "/"
+                table.insert(ret, project_name)
               end
             end
             return ret
