@@ -1,9 +1,11 @@
 local on_attach = function(_, bufnr)
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {
+  vim.keymap.set("n", "gd", function()
+    require("telescope.builtin").lsp_definitions({ reuse_win = true })
+  end, {
     buffer = bufnr,
     desc = "Goto Definition",
   })
-  vim.keymap.set("n", "gr", vim.lsp.buf.references, {
+  vim.keymap.set("n", "gr", "<cmd>Telescope lsp_references<cr>", {
     buffer = bufnr,
     desc = "References",
     nowait = true,
@@ -24,6 +26,18 @@ local on_attach = function(_, bufnr)
     buffer = bufnr,
     desc = "Go to next diagnostic",
   })
+  vim.keymap.set("n", "gI", function()
+    require("telescope.builtin").lsp_implementations({ reuse_win = true })
+  end, {
+    buffer = bufnr,
+    desc = "Goto Implementation",
+  })
+  vim.keymap.set("n", "gy", function()
+    require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+  end, {
+    buffer = bufnr,
+    desc = "Goto T[y]pe Definition",
+  })
 end
 
 return {
@@ -32,6 +46,7 @@ return {
     dependencies = {
       "williamboman/mason.nvim",
       "williamboman/mason-lspconfig.nvim",
+      "nvim-telescope/telescope.nvim",
     },
     opts = function()
       return {

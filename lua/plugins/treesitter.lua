@@ -8,6 +8,7 @@ return {
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
       { "nvim-treesitter/nvim-treesitter-textobjects" },
+      { "andymass/vim-matchup" },
     },
     opts_extend = { "ensure_installed" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall", "TSModuleInfo" },
@@ -51,5 +52,13 @@ return {
     config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    event = "VeryLazy",
+    opts = {
+      mode = "cursor",
+      max_lines = 3,
+    },
   },
 }
