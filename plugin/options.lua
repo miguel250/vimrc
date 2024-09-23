@@ -38,3 +38,6 @@ opt.undodir = "/tmp/vim"
 
 -- disable mouse
 opt.mouse = ""
+
+opt.updatetime = 50
+opt.cursorline = true
