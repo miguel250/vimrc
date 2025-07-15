@@ -1,6 +1,7 @@
 return {
   {
     "williamboman/mason.nvim",
+    commit = "4da89f3",
     cmd = "Mason",
     build = ":MasonUpdate",
     opts_extend = { "ensure_installed" },

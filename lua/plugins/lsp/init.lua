@@ -45,7 +45,7 @@ return {
     "neovim/nvim-lspconfig",
     dependencies = {
       "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
+      { "williamboman/mason-lspconfig.nvim", commit = "1a31f82" },
       "nvim-telescope/telescope.nvim",
     },
     opts = function()
