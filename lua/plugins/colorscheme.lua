@@ -18,6 +18,7 @@ return {
         default_integrations = true,
         integrations = {
           treesitter = true,
+          which_key = true,
         },
       })
       vim.cmd("colorscheme catppuccin")
