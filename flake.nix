@@ -42,8 +42,6 @@
           inherit system overlays;
         };
 
-      src = nixpkgs.lib.cleanSource ./.;
-
       forAllSystems =
         f:
         nixpkgs.lib.genAttrs systems (
@@ -84,14 +82,38 @@
             vimAlias = true;
 
             package = neovim-nightly.packages.${pkgs.stdenv.hostPlatform.system}.default;
+            extraLuaPackages = ps: [
+              ps.lua
+              ps.luarocks-nix
+              ps.magick
+            ];
           };
 
           home.file = {
             ".config/nvim" = {
-              source = builtins.toString ./.;
               recursive = true;
+              source = pkgs.lib.cleanSourceWith {
+                src = builtins.toString ./.;
+                filter =
+                  path: type:
+                  let
+                    baseName = baseNameOf path;
+                  in
+                  baseName != "lazy-lock.json";
+              };
             };
           };
+          home.activation.copyLazyLock =
+            let
+              src = ./lazy-lock.json;
+              target = "${config.home.homeDirectory}/.config/nvim/lazy-lock.json";
+            in
+            lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+              mkdir -p $(dirname ${target})
+              cp ${src} ${target}
+              chmod +w ${target}
+            '';
+
         };
 
       homeConfigurations = forAllSystems (
