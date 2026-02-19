@@ -1,6 +1,6 @@
 local on_attach = function(_, bufnr)
   vim.keymap.set("n", "gd", function()
-    require("telescope.builtin").lsp_definitions({ reuse_win = true })
+    require("telescope.builtin").lsp_definitions({ reuse_win = true, jump_type = "vsplit" })
   end, {
     buffer = bufnr,
     desc = "Goto Definition",
@@ -18,11 +18,15 @@ local on_attach = function(_, bufnr)
     buffer = bufnr,
     desc = "Rename",
   })
-  vim.keymap.set("n", "<leader>dp", vim.diagnostic.goto_prev, {
+  vim.keymap.set("n", "<leader>dp", function()
+    vim.diagnostic.jump({ count = 1, float = true })
+  end, {
     buffer = bufnr,
     desc = "Go to previous diagnostic",
   })
-  vim.keymap.set("n", "<leader>dn", vim.diagnostic.goto_prev, {
+  vim.keymap.set("n", "<leader>dn", function()
+    vim.diagnostic.jump({ count = -1, float = true })
+  end, {
     buffer = bufnr,
     desc = "Go to next diagnostic",
   })
@@ -49,6 +53,7 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     opts = function()
+      vim.lsp.set_log_level("off")
       return {
         capabilities = {
           workspace = {
@@ -75,7 +80,17 @@ return {
                   privateName = { "^_" },
                 },
                 diagnostics = {
-                  globals = { "vim" },
+                  underline = true,
+                  update_in_insert = false,
+                  virtual_text = {
+                    spacing = 4,
+                    source = "if_many",
+                    prefix = "●",
+                    -- this will set set the prefix to a function that returns the diagnostics icon based on the severity
+                    -- this only works on a recent 0.10.0 build. Will be set to "●" when not supported
+                    -- prefix = "icons",
+                  },
+                  severity_sort = true,
                 },
                 hint = {
                   enable = true,
