@@ -5,13 +5,22 @@ return {
     lazy = true,
     cmd = "ConformInfo",
     opts = function()
+      local default_format_opts = {
+        timeout_ms = 3000,
+        async = false,
+        quiet = false,
+        lsp_format = "fallback",
+      }
       return {
-        default_format_opts = {
-          timeout_ms = 3000,
-          async = false,
-          quiet = false,
-          lsp_format = "fallback",
-        },
+        default_format_opts = default_format_opts,
+        format_on_save = function(bufnr)
+          local filename = vim.api.nvim_buf_get_name(bufnr)
+          local extension = vim.fn.fnamemodify(filename, ":e")
+          if extension == "mlx" then
+            return false
+          end
+          return vim.deepcopy(default_format_opts)
+        end,
         formatters_by_ft = {
           lua = { "stylua" },
         },
@@ -22,20 +31,6 @@ return {
     end,
     config = function(_, opts)
       require("conform").setup(opts)
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        callback = function(args)
-          -- local filename = vim.fn.expand "%:p"
-
-          local extension = vim.fn.expand("%:e")
-          if extension == "mlx" then
-            return
-          end
-
-          require("conform").format({
-            bufnr = args.buf,
-          })
-        end,
-      })
     end,
   },
 }

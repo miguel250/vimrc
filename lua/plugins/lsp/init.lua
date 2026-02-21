@@ -19,13 +19,13 @@ local on_attach = function(_, bufnr)
     desc = "Rename",
   })
   vim.keymap.set("n", "<leader>dp", function()
-    vim.diagnostic.jump({ count = 1, float = true })
+    vim.diagnostic.jump({ count = -1, float = true })
   end, {
     buffer = bufnr,
     desc = "Go to previous diagnostic",
   })
   vim.keymap.set("n", "<leader>dn", function()
-    vim.diagnostic.jump({ count = -1, float = true })
+    vim.diagnostic.jump({ count = 1, float = true })
   end, {
     buffer = bufnr,
     desc = "Go to next diagnostic",
@@ -53,7 +53,7 @@ return {
       "nvim-telescope/telescope.nvim",
     },
     opts = function()
-      vim.lsp.set_log_level("off")
+      vim.lsp.log.set_level("off")
       return {
         capabilities = {
           workspace = {
@@ -146,8 +146,17 @@ return {
       local _, mlsp = pcall(require, "mason-lspconfig")
       local plugin = require("lazy.core.config").spec.plugins["mason-lspconfig.nvim"]
       local mlsp_ensure_installed = require("lazy.core.plugin").values(plugin, "opts", false).ensure_installed
+      local combined = vim.list_extend(vim.deepcopy(ensure_installed), mlsp_ensure_installed or {})
+      local deduped = {}
+      local seen = {}
+      for _, server in ipairs(combined) do
+        if not seen[server] then
+          seen[server] = true
+          deduped[#deduped + 1] = server
+        end
+      end
       mlsp.setup({
-        ensure_installed = vim.tbl_deep_extend("force", ensure_installed, mlsp_ensure_installed or {}),
+        ensure_installed = deduped,
         handlers = { setup },
       })
     end,
