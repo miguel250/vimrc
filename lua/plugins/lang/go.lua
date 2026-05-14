@@ -31,6 +31,7 @@ return {
       "mason-org/mason.nvim",
       opts = {
         ensure_installed = {
+          "goimports",
           "goimports-reviser",
           "gofumpt",
         },
@@ -38,13 +39,13 @@ return {
     },
     opts = {
       formatters_by_ft = {
-        go = { "goimports-reviser", "gofumpt" },
+        go = { "goimports", "goimports-reviser", "gofumpt" },
       },
       formatters = {
         ["goimports-reviser"] = {
           prepend_args = function(_, ctx)
             local mod = get_mod_name(ctx)
-            local ret = { "-rm-unused", "-set-alias", "-use-cache" }
+            local ret = { "-set-alias", "-use-cache" }
             if type(mod) == "table" then
               local company_prefixes = mod[1]
               local size = vim.tbl_count(mod)
@@ -88,7 +89,6 @@ return {
                 unusedparams = true,
                 unusedwrite = true,
                 useany = true,
-                fieldalignment = true,
               },
               codelenses = {
                 gc_details = false,
