@@ -9,9 +9,8 @@ if not vim.uv.fs_stat(revision_file) then
   end
 
   if vim.uv.fs_stat(vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser") then
-    local treesitter_parsers = vim.fn.globpath(vim.fn.stdpath("data") .. "/lazy/nvim-treesitter/parser/*", true, true)
+    local treesitter_parsers = vim.fn.globpath(vim.fn.stdpath("data"), "/lazy/nvim-treesitter/parser/*", true, true)
     if type(treesitter_parsers) == "table" then
-      vim.print(treesitter_parsers)
       for _, f in ipairs(treesitter_parsers) do
         vim.fn.delete(f)
       end
