@@ -12,10 +12,6 @@ return {
     },
     opts_extend = { "ensure_installed" },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall", "TSModuleInfo" },
-    init = function(plugin)
-      require("lazy.core.loader").add_to_rtp(plugin)
-      require("nvim-treesitter.query_predicates")
-    end,
     keys = {
       { "<c-space>", desc = "Increment Selection" },
       { "<bs>", desc = "Decrement Selection", mode = "x" },
@@ -23,6 +19,7 @@ return {
     opts = {
       highlight = { enable = true },
       indent = { enable = true },
+      folds = { enable = true },
       ensure_installed = {
         "lua",
         "luadoc",
@@ -50,7 +47,17 @@ return {
       },
     },
     config = function(_, opts)
-      require("nvim-treesitter.configs").setup(opts)
+      local TS = require("nvim-treesitter")
+      TS.setup(opts)
+
+      local installed = TS.get_installed()
+      local install = vim.tbl_filter(function(lang)
+        return not vim.tbl_contains(installed, lang)
+      end, opts.ensure_installed or {})
+
+      if #install > 0 then
+        TS.install(install, { summary = true })
+      end
     end,
   },
   {
