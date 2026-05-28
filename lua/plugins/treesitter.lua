@@ -4,6 +4,7 @@ return {
     build = ":TSUpdate",
     branch = "main",
     version = false,
+    lazy = false,
     event = "BufRead",
     dependencies = {
       { "nvim-tree/nvim-web-devicons" },
@@ -48,6 +49,10 @@ return {
     },
     config = function(_, opts)
       local TS = require("nvim-treesitter")
+      if not TS.get_installed then
+        print("Restart vim and run :TSUpdate")
+        return
+      end
       TS.setup(opts)
 
       local installed = TS.get_installed()
