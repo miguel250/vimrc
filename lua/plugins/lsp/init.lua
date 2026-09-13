@@ -42,6 +42,15 @@ local on_attach = function(_, bufnr)
     buffer = bufnr,
     desc = "Goto T[y]pe Definition",
   })
+  vim.keymap.set("n", "<leader>co", function()
+    vim.lsp.buf.code_action({
+      vim.lsp.buf.code_action({ context = { only = { "source.organizeImports" } }, apply = true }),
+    })
+    require("telescope.builtin").lsp_type_definitions({ reuse_win = true })
+  end, {
+    buffer = bufnr,
+    desc = "Organize Imports",
+  })
 end
 
 return {
